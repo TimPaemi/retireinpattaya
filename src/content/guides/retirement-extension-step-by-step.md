@@ -1,6 +1,6 @@
 ---
 title: "The Retirement Extension, Step by Step"
-description: "A calm, practical walkthrough of Thailand's annual retirement extension — the deposit and income routes, seasoning, documents and renewal — with figures to verify."
+description: "A calm, practical walkthrough of Thailand's retirement extension — the deposit and income routes, seasoning, documents and renewal, with sourced 2026 figures."
 pillar: "visas"
 author: "editorial-team"
 publishDate: 2026-06-14

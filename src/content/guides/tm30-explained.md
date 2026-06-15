@@ -43,8 +43,4 @@ Immigration may ask to see that your TM30 is on file when you do other things â€
 - If you rent privately and the owner is hands-off, you may be able to file it yourself online or in person (self-filing options vary by office).
 - Keep the receipt with your passport copies.
 
-> **Before any immigration appointment,** check your TM30 is current. Two minutes now saves a wasted trip and a return queue.
-
-## The bottom line
-
-The TM30 is the classic "boring but important" task. Get your copy when you move in, keep it with your documents, and re-check it before each immigration errand.
+> **Before any immigration appointment,** check your TM30 is curren

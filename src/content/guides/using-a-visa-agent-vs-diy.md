@@ -15,7 +15,7 @@ sources:
   - label: "Thai Immigration Bureau (official)"
     url: "https://www.immigration.go.th"
     publisher: "Royal Thai Police, Immigration Bureau"
-    accessed: "2026-06-14"
+    accessed: "2026-06-15"
 faq:
   - q: "Is it legal to use a visa agent in Thailand?"
     a: "Reputable agents who help you prepare and submit a legitimate application are widely used and fine. The caution is around anyone offering to bypass the actual financial or legal requirements — that is where real risk lies."

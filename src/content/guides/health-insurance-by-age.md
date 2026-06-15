@@ -64,10 +64,4 @@ Roughly speaking, premiums climb with each decade and can multiply several times
 ## What to do about it
 
 - **Get covered earlier rather than later**, and keep it continuous.
-- **Match cover to need and budget** — comprehensive international cover is reassuring but expensive; some retirees choose regional cover plus a self-funding buffer.
-- **Read the renewal track record**, not just the first-year price.
-- **Have a Plan B**: know what you'd do if cover became unaffordable or unavailable — including, for some, the honest option of returning home.
-
-## The bottom line
-
-The insurance question isn't a detail; for many it's *the* deciding factor in whether a move abroad is wise. Treat it as central, act while you're younger, and budget for a cost that rises as you age.
+- **Match cover to need and budget** — comprehensive international cover is reassuring but expe

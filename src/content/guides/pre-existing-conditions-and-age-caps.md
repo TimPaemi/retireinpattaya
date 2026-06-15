@@ -14,7 +14,7 @@ sources:
   - label: "General guidance — replace with verified insurer/broker sources"
     url: "https://www.immigration.go.th"
     publisher: "(your verified sources here)"
-    accessed: "2026-06-14"
+    accessed: "2026-06-15"
 faq:
   - q: "Will insurance cover a condition I already have?"
     a: "Often it won't — pre-existing conditions are commonly excluded, covered only after a waiting period, or priced with a loading. Some insurers will cover stable conditions after review. Always declare everything; the alternative risks your whole policy."

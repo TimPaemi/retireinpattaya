@@ -39,12 +39,4 @@ You'll generally need your **passport and long-term visa**, a **residence certif
 
 This matters more than the licence itself. Thailand's roads are riskier than most Western retirees are used to, and **motorbike accidents are a leading cause of serious injury** to newcomers. If you ride:
 
-- **Always wear a helmet** — every trip, no exceptions.
-- **Ride defensively** and assume others won't follow the rules.
-- **Check your insurance** actually covers motorbike use and any accident costs.
-
-Plenty of retirees choose to skip the bike entirely and use cars, taxis and ride apps. There's no shame in that — it's often the safer call.
-
-## The bottom line
-
-Get the licence if you'll stay long-term, but put road safety first: helmet always, ride defensively, and make sure your [insurance](/healthcare/health-insurance-by-age/) has you covered. Your health is worth far more than the convenience of a scooter.
+- **Always wear a helmet** — every trip, no exc

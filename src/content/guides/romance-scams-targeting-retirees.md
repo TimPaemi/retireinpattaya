@@ -52,12 +52,4 @@ They follow a script: intense early affection, a fast-deepening "relationship," 
 - **Pause on money.** A genuine partner won't collapse if you take time before sending funds.
 - **Talk to someone you trust.** Scams thrive in secrecy; a friend's outside view is powerful.
 - **Keep records** of messages and any transfers.
-- **If it's gone wrong, report it** and seek support early. In Thailand, the **Tourist Police speak English on the 24-hour hotline 1155** (also via the Tourist Police app or a Tourist Police station). **Tell your bank's fraud team immediately** if you've sent money, contact **your embassy**, and report to your home fraud service (e.g. Action Fraud in the UK, the FBI's IC3 in the US, or Scamwatch in Australia).
-
-## Protecting the people you love
-
-If you're an adult child reading this for a parent: lead with care, not alarm. Stay connected, ask gentle questions, and make it easy for them to talk to you without shame. Connection is the strongest defence.
-
-## The bottom line
-
-Most relationships people build in Pattaya are perfectly genuine. But where money and urgency appear early, slow right down and seek a trusted second opinion. Caution here protects both your finances and your dignity — and there's no shame in being careful.
+- **If it's gone wrong, report it** and seek support early. In Thailand, the **Tourist Police speak English on the 24-hour hotline 1155** (also via the Tourist Police app or a Tourist Police station). **Tell your bank's fraud team immediately** if you've sent money, contact **your embassy**, and report to your home fraud service (e.g. Action Fraud in the UK, the FBI's IC3 in the 

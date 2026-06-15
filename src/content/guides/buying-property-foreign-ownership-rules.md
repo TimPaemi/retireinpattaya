@@ -42,16 +42,4 @@ As a foreigner, you generally **cannot own land** outright. That's why a house i
 ## Where people get hurt
 
 - Relying on a **seller's or agent's reassurance** instead of independent legal advice.
-- "Nominee" arrangements designed to sidestep the land rules — these can be unlawful and unwind badly.
-- Buying off-plan from an **unproven developer** without protections.
-
-## How to do it safely
-
-- **Use your own lawyer**, not the seller's.
-- **Verify the foreign quota** and clean title in writing.
-- **Be wary of any structure** whose main purpose is to get around the land rules.
-- **Don't rush** — pressure is a warning sign.
-
-## The bottom line
-
-Condos are the clean, legal path to ownership for most foreigners; land is restricted and the workarounds carry real risk. Independent Thai legal advice isn't optional here — it's the whole game.
+- "Nominee" arrangements designed to sidestep the land rules �
