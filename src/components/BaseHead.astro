@@ -54,6 +54,10 @@ const allSchemas = [...baseSchemas, ...schemas];
 <script is:inline>(function(){try{var s=localStorage.getItem("rip-textsize"),m={normal:"100%",large:"112%",xlarge:"125%"};if(s&&m[s])document.documentElement.style.fontSize=m[s];}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta name="theme-color" content="#0e4d64" />
 <link rel="canonical" href={canonical} />
 <meta name="generator" content={Astro.generator} />
 
@@ -68,6 +72,9 @@ const allSchemas = [...baseSchemas, ...schemas];
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonical} />
 <meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={fullTitle} />
 <meta property="og:locale" content="en_US" />
 
 <!-- Twitter -->
@@ -75,6 +82,7 @@ const allSchemas = [...baseSchemas, ...schemas];
 <meta name="twitter:title" content={fullTitle} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={fullTitle} />
 
 <!-- Structured data -->
 {allSchemas.map((s) => (

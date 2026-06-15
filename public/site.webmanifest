@@ -1,0 +1,14 @@
+{
+  "name": "Retire in Pattaya",
+  "short_name": "Retire in Pattaya",
+  "description": "The honest guide to retiring well in Pattaya, Thailand.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0e4d64",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
