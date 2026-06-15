@@ -2,19 +2,23 @@
 title: "Sending Money to Thailand Without Losing a Fortune"
 description: "How to move your pension and savings to Thailand cost-effectively — transfer services vs banks, ATM fees, and getting transfers right for the income visa route."
 pillar: "money"
-author: "james-whitfield"
+author: "editorial-team"
 publishDate: 2026-06-14
-lastReviewed: 2026-06-14
+lastReviewed: 2026-06-15
 draft: false
 ymyl: true
 contentType: "guide"
 tags: ["wise", "money transfer", "fx", "atm fees", "banking"]
 verifyPending: false
 sources:
-  - label: "Compare provider fees directly (example)"
+  - label: "Compare provider fees directly"
     url: "https://wise.com"
     publisher: "Wise"
-    accessed: "2026-06-14"
+    accessed: "2026-06-15"
+  - label: "International ATM withdrawals in Thailand (fees)"
+    url: "https://thailandexpathub.com/international-atm-withdrawals-in-thailand-minimizing-the-220-thb-fee/"
+    publisher: "Thailand Expat Hub"
+    accessed: "2026-06-15"
 faq:
   - q: "What's the cheapest way to send money to Thailand?"
     a: "Specialist transfer services usually beat traditional bank wires on both fees and exchange rate, though the best option depends on amount, currencies and timing. Always compare the total cost — fee plus the rate margin — not just the headline fee."
@@ -33,11 +37,11 @@ Traditional **bank wires** are often the most expensive route: a transfer fee *p
 
 ## Watch the ATM fees
 
-Withdrawing baht from a Thai ATM on a foreign card usually adds a **per-withdrawal charge** on top of your home bank's fees (⟨VERIFY current amount⟩). Larger, less frequent withdrawals reduce the hit — or use an account/card designed for low-cost overseas spending.
+Withdrawing baht from a Thai ATM on a foreign card adds a **per-withdrawal charge of roughly 220–350 THB** (it varies by bank — Aeon is often cheapest) on top of your home bank's fees. Larger, less frequent withdrawals reduce the hit. And always choose to be charged in **baht**, never the machine's own currency-conversion offer — that "convenience" rate is far worse.
 
 ## Getting transfers right for your visa
 
-If you plan to use the **monthly-income route** for your retirement extension, the way money arrives matters: immigration generally wants to see qualifying **international transfers** landing in your Thai account, not just internal movements. Set this up correctly from the start — see [the retirement extension guide](/visas/retirement-extension-step-by-step/) — and ⟨VERIFY the current evidence rules⟩.
+If you plan to use the **monthly-income route** for your retirement extension, the way money arrives matters: immigration generally wants to see qualifying **international transfers** landing in your Thai account, not just internal movements. Set this up correctly from the start — see [the retirement extension guide](/visas/retirement-extension-step-by-step/) — and confirm the current evidence rules with immigration or your agent.
 
 ## A simple setup that works
 

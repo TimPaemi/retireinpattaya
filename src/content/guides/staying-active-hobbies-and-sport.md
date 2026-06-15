@@ -2,7 +2,7 @@
 title: "Staying Active: Hobbies & Sport in Pattaya"
 description: "Golf, cycling, swimming, petanque, walking groups and more — how retirees stay fit, busy and social in Pattaya's warm climate, year round."
 pillar: "daily-life"
-author: "james-whitfield"
+author: "editorial-team"
 publishDate: 2026-06-14
 lastReviewed: 2026-06-14
 draft: false

@@ -2,7 +2,7 @@
 title: "Pattaya vs Chiang Mai vs Hua Hin"
 description: "An even-handed comparison of Thailand's three popular retirement spots — climate, cost, healthcare, pace and community — to help you choose honestly."
 pillar: "reality-checks"
-author: "james-whitfield"
+author: "editorial-team"
 reviewer: "editorial-team"
 publishDate: 2026-06-14
 lastReviewed: 2026-06-14

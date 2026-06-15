@@ -2,7 +2,7 @@
 title: "The Best Areas in Pattaya for Retirees"
 description: "An honest tour of the calmer, retiree-friendly areas — Jomtien, Pratumnak Hill and Bang Saray — versus the busy centre, with the trade-offs of each."
 pillar: "housing"
-author: "james-whitfield"
+author: "editorial-team"
 publishDate: 2026-06-14
 lastReviewed: 2026-06-14
 draft: false

@@ -3,7 +3,6 @@ title: "Hospitals in Pattaya: A Retiree's Guide"
 description: "The main private hospitals serving Pattaya retirees — Bangkok Hospital Pattaya, Pattaya International and Jomtien — honest notes on quality and cost."
 pillar: "healthcare"
 author: "editorial-team"
-reviewer: "james-whitfield"
 publishDate: 2026-06-14
 lastReviewed: 2026-06-15
 draft: false
@@ -52,4 +51,4 @@ For routine and many serious needs, the private hospitals here are excellent val
 
 ## The bottom line
 
-Pattaya's private hospitals are a real asset — modern, quick and good value. The catch is simply that care is paid-for, which makes your insurance or self-funding plan the thing to get right. See [health insurance by age](/healthcare/health-insurance-by-age/) next.
+Pattaya's private hospitals are a real as

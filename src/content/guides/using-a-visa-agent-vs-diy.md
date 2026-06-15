@@ -2,7 +2,7 @@
 title: "Visa Agent vs DIY: An Honest Comparison"
 description: "When a Thai visa agent genuinely helps, when you can do it yourself, what reputable help costs, and the agent red flags every retiree should know."
 pillar: "visas"
-author: "james-whitfield"
+author: "editorial-team"
 reviewer: "editorial-team"
 publishDate: 2026-06-14
 lastReviewed: 2026-06-14

@@ -2,7 +2,7 @@
 title: "First-Year Mistakes to Avoid"
 description: "The common, avoidable mistakes new retirees make in their first year in Pattaya — from buying too soon to neglecting insurance — and how to sidestep them."
 pillar: "reality-checks"
-author: "james-whitfield"
+author: "editorial-team"
 publishDate: 2026-06-14
 lastReviewed: 2026-06-14
 draft: false

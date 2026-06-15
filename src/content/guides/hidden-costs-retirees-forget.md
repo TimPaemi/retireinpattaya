@@ -2,7 +2,7 @@
 title: "The Hidden Costs Retirees Forget"
 description: "The non-monthly and easily-missed costs of retiring in Pattaya — insurance rises, flights home, visa cycles, FX swings and the emergency buffer you'll be glad of."
 pillar: "cost-of-living"
-author: "james-whitfield"
+author: "editorial-team"
 publishDate: 2026-06-14
 lastReviewed: 2026-06-14
 draft: false

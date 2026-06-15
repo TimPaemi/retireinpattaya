@@ -2,7 +2,7 @@
 title: "Pattaya Weather & the Best Time to Move"
 description: "Pattaya's hot, rainy and cooler seasons explained — what the climate is really like year-round, and the best time of year to arrive and settle in."
 pillar: "daily-life"
-author: "james-whitfield"
+author: "editorial-team"
 publishDate: 2026-06-14
 lastReviewed: 2026-06-14
 draft: false

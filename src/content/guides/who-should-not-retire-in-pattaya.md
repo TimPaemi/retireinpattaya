@@ -2,7 +2,7 @@
 title: "Who Should NOT Retire in Pattaya"
 description: "An honest reality check. For some people Pattaya is a poor fit — and it's far better to learn that from your armchair than after you've shipped your life over."
 pillar: "reality-checks"
-author: "james-whitfield"
+author: "editorial-team"
 reviewer: "editorial-team"
 publishDate: 2026-06-14
 lastReviewed: 2026-06-14

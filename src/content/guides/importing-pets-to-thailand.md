@@ -2,7 +2,7 @@
 title: "Bringing Your Pet to Thailand"
 description: "An honest overview of importing a dog or cat to Thailand for retirees — the paperwork, vaccinations and quarantine questions to plan for well in advance."
 pillar: "getting-settled"
-author: "james-whitfield"
+author: "editorial-team"
 publishDate: 2026-06-14
 lastReviewed: 2026-06-14
 draft: false

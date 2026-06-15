@@ -2,7 +2,7 @@
 title: "SIM Cards & Home Internet in Pattaya"
 description: "Getting connected in Pattaya — choosing a mobile SIM, typical home internet options and speeds, and what retirees need for calls home and everyday life."
 pillar: "getting-settled"
-author: "james-whitfield"
+author: "editorial-team"
 publishDate: 2026-06-14
 lastReviewed: 2026-06-14
 draft: false

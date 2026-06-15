@@ -2,7 +2,7 @@
 title: "Renting in Pattaya: What to Check First"
 description: "Why most retirees should rent before buying, what a fair condo rent includes, and the lease details to check before you sign — from contracts to TM30."
 pillar: "housing"
-author: "james-whitfield"
+author: "editorial-team"
 publishDate: 2026-06-14
 lastReviewed: 2026-06-14
 draft: false

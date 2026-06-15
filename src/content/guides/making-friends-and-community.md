@@ -2,7 +2,7 @@
 title: "Making Friends & Finding Community"
 description: "How retirees actually build a social life in Pattaya — expat clubs, hobbies, faith and volunteering — and why it's the difference between thriving and leaving."
 pillar: "daily-life"
-author: "james-whitfield"
+author: "editorial-team"
 publishDate: 2026-06-14
 lastReviewed: 2026-06-14
 draft: false

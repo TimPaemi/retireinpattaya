@@ -3,7 +3,6 @@ title: "The Retirement Extension, Step by Step"
 description: "A calm, practical walkthrough of Thailand's annual retirement extension — the deposit and income routes, seasoning, documents and renewal — with figures to verify."
 pillar: "visas"
 author: "editorial-team"
-reviewer: "james-whitfield"
 publishDate: 2026-06-14
 lastReviewed: 2026-06-15
 draft: false
@@ -82,9 +81,4 @@ For most of Pattaya that's **Jomtien Immigration**. Go early; queues build. Many
 The extension isn't "set and forget":
 
 - File your **[90-day report](/visas/90-day-reporting-explained/)** on time.
-- Keep your **[TM30](/visas/tm30-explained/)** address notification current.
-- Get a **re-entry permit before any trip abroad**, or your extension can lapse on exit.
-
-## The honest bottom line
-
-The retirement extension is well-trodden and manageable. Your two jobs are simple: **get the money timing right**, and **stay on top of the small ongoing tasks**. Do those, and renewal becomes a calm annual routine rather than a yearly scramble.
+- Keep your **[TM30](/visas/tm30-explained/)** ad
