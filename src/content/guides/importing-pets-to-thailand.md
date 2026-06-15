@@ -4,28 +4,36 @@ description: "An honest overview of importing a dog or cat to Thailand for retir
 pillar: "getting-settled"
 author: "editorial-team"
 publishDate: 2026-06-14
-lastReviewed: 2026-06-14
+lastReviewed: 2026-06-15
 draft: false
 ymyl: true
 contentType: "guide"
 tags: ["pets", "importing pets", "dogs", "cats", "relocation"]
-verifyPending: true
-sources: []
+verifyPending: false
+sources:
+  - label: "Bringing pets to Thailand (official)"
+    url: "https://washingtondc.thaiembassy.org/en/page/bring-pets-to-thailand"
+    publisher: "Royal Thai Embassy"
+    accessed: "2026-06-15"
+  - label: "Thailand pet import requirements"
+    url: "https://www.pettravel.com/information/pet-passports/thailand-pet-import-requirements/"
+    publisher: "PetTravel.com"
+    accessed: "2026-06-15"
 takeaways:
   - "Start months ahead — vaccination and paperwork timelines are unforgiving."
   - "Rabies vaccination and an import permit are typically central; verify the current rules."
   - "A reputable pet-relocation agent is often worth it for the airline and customs steps."
 faq:
   - q: "Can I bring my dog or cat to Thailand?"
-    a: "Yes, many retirees do, but it requires planning: vaccinations (rabies is typically central), health certification, and an import permit, with strict timing. Requirements change, so verify the current rules well in advance."
+    a: "Yes, many retirees do. The essentials: microchip, rabies vaccination (your pet must be 3+ months old when vaccinated, given more than 21 days before travel), other core vaccines, a vet health certificate, and an import permit from Thailand's Department of Livestock Development. No rabies blood-titer test is needed. Confirm the current details and timings well in advance."
   - q: "Is there pet quarantine in Thailand?"
-    a: "Requirements have varied over time and by circumstances. Confirm the current quarantine position and paperwork before booking travel, as getting the timeline wrong is the most common and costly mistake."
+    a: "If your pet meets all the vaccination and documentation requirements, routine quarantine is generally not imposed — but authorities can require it if paperwork is incomplete or timings are off. Confirm before booking travel, as getting the timeline wrong is the most common and costly mistake."
 related: ["shipping-belongings-to-thailand", "thai-driving-licence"]
 ---
 
 For many retirees, the pet comes too — and they usually settle in beautifully. The key is starting early, because the paperwork timelines are strict and unforgiving.
 
-> Pet-import rules change and the timing is exacting. Treat the below as orientation and confirm the **current** requirements with official sources and your airline well ahead — everything here is ⟨VERIFY⟩.
+> Pet-import rules change and the timing is exacting. Treat the below as orientation and confirm the **current** requirements with the Thai authorities and your airline well ahead.
 
 ## Plan months ahead
 
@@ -33,10 +41,13 @@ The single biggest mistake is leaving it late. Vaccinations have minimum waiting
 
 ## The typical building blocks
 
-- **Microchip and rabies vaccination**, with the timing rules respected. ⟨VERIFY⟩
-- **A veterinary health certificate** close to travel. ⟨VERIFY⟩
-- **An import permit** for Thailand. ⟨VERIFY⟩
+- **Microchip first, then rabies vaccination** — your pet must be **at least 3 months old** when vaccinated, and the rabies shot must be given **more than 21 days before** travel (the rabies certificate should show the microchip number).
+- **Other core vaccines** — dogs also need distemper, hepatitis, parvovirus and leptospirosis cover; cats need panleukopenia.
+- **A veterinary health certificate** issued close to travel by an accredited vet.
+- **An import permit** from Thailand's **Department of Livestock Development (DLD)** — apply ahead (processing is typically ~5–7 business days, and the permit is valid ~60 days).
 - **Airline requirements** for the crate, breed and travel conditions.
+
+Reassuringly, Thailand does **not** require a rabies blood-titer test (unlike the EU), which removes one of the longest delays.
 
 ## Should you use an agent?
 

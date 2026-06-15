@@ -4,22 +4,26 @@ description: "A calm, non-judgemental guide to the relationship scams that targe
 pillar: "safety-scams"
 author: "editorial-team"
 publishDate: 2026-06-14
-lastReviewed: 2026-06-14
+lastReviewed: 2026-06-15
 draft: false
 ymyl: false
 contentType: "guide"
 tags: ["romance scams", "relationship scams", "safety", "fraud"]
 verifyPending: false
 sources:
-  - label: "Report fraud / get help (replace with your verified local + home-country resources)"
-    url: "https://www.immigration.go.th"
-    publisher: "(add verified resources)"
-    accessed: "2026-06-14"
+  - label: "How to report an online scam in Thailand"
+    url: "https://www.siam-legal.com/cybercrime-law/asset-recovery/report-an-online-scam-in-thailand/"
+    publisher: "Siam Legal International"
+    accessed: "2026-06-15"
+  - label: "Common scams to avoid — U.S. Embassy Thailand"
+    url: "https://th.usembassy.gov/common-scams-to-avoid/"
+    publisher: "U.S. Embassy & Consulate in Thailand"
+    accessed: "2026-06-15"
 faq:
   - q: "How do I tell a genuine relationship from a scam?"
     a: "Genuine relationships don't usually involve early, escalating requests for money, secrecy, or pressure. The clearest single signal is money: repeated financial requests, especially with urgency or a crisis story, are the reddest of flags. Take your time and talk to someone you trust."
   - q: "I think I've been scammed — what should I do?"
-    a: "First, you're not foolish; these schemes are practised and deliberate. Stop sending money, keep records, talk to someone you trust, and report it to the relevant authorities at home and locally. Seeking help early limits the damage."
+    a: "First, you're not foolish; these schemes are practised and deliberate. Stop sending money, keep records, and tell your bank's fraud team immediately. In Thailand the Tourist Police hotline is 1155 (English-speaking); also report it to your home country's fraud service and your embassy. Seeking help early limits the damage."
 related: ["who-should-not-retire-in-pattaya"]
 takeaways:
   - "Money requests — especially urgent ones — are the clearest red flag."
@@ -48,7 +52,7 @@ They follow a script: intense early affection, a fast-deepening "relationship," 
 - **Pause on money.** A genuine partner won't collapse if you take time before sending funds.
 - **Talk to someone you trust.** Scams thrive in secrecy; a friend's outside view is powerful.
 - **Keep records** of messages and any transfers.
-- **If it's gone wrong, report it** — to authorities at home and locally — and seek support early. ⟨VERIFY current local and home-country reporting contacts⟩.
+- **If it's gone wrong, report it** and seek support early. In Thailand, the **Tourist Police speak English on the 24-hour hotline 1155** (also via the Tourist Police app or a Tourist Police station). **Tell your bank's fraud team immediately** if you've sent money, contact **your embassy**, and report to your home fraud service (e.g. Action Fraud in the UK, the FBI's IC3 in the US, or Scamwatch in Australia).
 
 ## Protecting the people you love
 

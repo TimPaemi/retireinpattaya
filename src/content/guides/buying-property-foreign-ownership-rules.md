@@ -4,16 +4,24 @@ description: "What foreigners can and can't legally own in Thailand — the cond
 pillar: "housing"
 author: "editorial-team"
 publishDate: 2026-06-14
-lastReviewed: 2026-06-14
+lastReviewed: 2026-06-15
 draft: false
 ymyl: true
 contentType: "explainer"
 tags: ["buying property", "foreign ownership", "condo", "freehold", "leasehold"]
-verifyPending: true
-sources: []
+verifyPending: false
+sources:
+  - label: "Thailand condo foreign quota — the 49% rule (Condominium Act)"
+    url: "https://terms.law/Thai/property/condo-foreign-quota.html"
+    publisher: "Terms.law"
+    accessed: "2026-06-15"
+  - label: "Can foreigners buy condominiums in Thailand? (2026)"
+    url: "https://lexbangkok.com/can-foreigners-buy-condominiums-in-thailand/"
+    publisher: "Lex Bangkok"
+    accessed: "2026-06-15"
 faq:
   - q: "Can a foreigner own a condo in Thailand?"
-    a: "Foreigners can own condominium units freehold, subject to the building's foreign-ownership quota. You generally cannot own the land a house sits on. Verify the current rules and the specific unit's quota status before committing."
+    a: "Yes. Foreigners can own condominium units freehold, as long as the building is within its foreign-ownership quota — up to 49% of the building's total floor area may be foreign-owned. You generally cannot own the land a house sits on. Confirm the specific unit's quota status and clean title before committing."
   - q: "Can I own a house and land in Thailand?"
     a: "As a foreigner you generally cannot own land outright. People use structures like long leases or Thai-registered arrangements, some of which carry real legal risk. This is exactly the area to take independent Thai legal advice on — never rely on a seller's reassurance."
 related: ["renting-in-pattaya-what-to-check", "wills-in-thailand-and-home"]
@@ -21,11 +29,11 @@ related: ["renting-in-pattaya-what-to-check", "wills-in-thailand-and-home"]
 
 Buying can make sense once you're settled — but Thailand's ownership rules for foreigners are specific, and the "workarounds" are where people get hurt. Here's the honest picture.
 
-> Property law is high-stakes. Treat this as orientation, then get **independent** Thai legal advice — from a lawyer you chose, not one the seller recommended. Figures and rules are ⟨VERIFY⟩.
+> Property law is high-stakes. Treat this as orientation, then get **independent** Thai legal advice — from a lawyer you chose, not one the seller recommended.
 
 ## Condos — what you can own
 
-Foreigners **can** own a condominium unit freehold, as long as the building stays within its **foreign-ownership quota** (a capped share of the building may be foreign-owned). Always confirm a specific unit is available within that quota *before* you fall in love with it.
+Foreigners **can** own a condominium unit freehold, as long as the building stays within its **foreign-ownership quota**: under Thailand's Condominium Act, **foreigners may collectively own up to 49% of a building's total floor area** (the other 51% must be Thai-owned). In popular Pattaya projects that foreign quota can fill up, so always confirm a specific unit is available within it *before* you fall in love with it.
 
 ## Land and houses — the hard limit
 
