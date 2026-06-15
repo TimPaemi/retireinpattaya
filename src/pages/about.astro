@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+<BaseLayout title="About Us" description="Who we are, why we built an honest resource for retiring in Pattaya, and exactly how we make money — stated plainly.">
+  <section class="section"><div class="container container-narrow prose flow">
+    <Breadcrumbs crumbs={[{ label: 'About' }]} />
+    <h1>About Retire in Pattaya</h1>
+    <p class="lead">We're building the most honest English-language resource for retiring in Pattaya, Thailand — for people making one of the biggest decisions of their lives.</p>
+
+    <h2>Why this exists</h2>
+    <p>Most of what's written about Pattaya is either holiday hype or trades on a seedy stereotype. Neither helps a 62-year-old in Manchester or Melbourne who is seriously weighing whether their pension will stretch, whether they'll get health insurance at 70, and whether they'll be lonely. That person deserves calm, candid, carefully-sourced guidance. That's all we try to be.</p>
+
+    <h2>Our promise: the whole truth</h2>
+    <p>We tell both sides. We write about quiet beaches, value and good hospitals — and about insurance getting expensive with age, isolation, scams that target retirees, the UK frozen-pension issue, and what happens if money runs out abroad. If something is a bad idea for some people, we say so. Honesty is the whole point.</p>
+
+    <h2>How we make money (plainly)</h2>
+    <p>To keep this resource free, we earn through carefully-chosen referrals and advertising — for example, if you request a health-insurance quote or use a money-transfer service through a link here, we may earn a commission at no extra cost to you. Two firm rules:</p>
+    <ul>
+      <li><strong>Recommendations are never for sale.</strong> What we suggest is based on what we believe genuinely serves you, not on who pays most.</li>
+      <li><strong>We will never host predatory advertisers</strong> — no "guaranteed" investment schemes, no anything designed to part retirees from their money.</li>
+    </ul>
+
+    <h2>What we are not</h2>
+    <p>We are not financial advisers, lawyers, doctors, insurance brokers or immigration agents. Nothing here is personal advice. For decisions that matter — and most of these do — we'll always point you toward a qualified professional.</p>
+
+    <p><a href="/editorial-standards/">Read our editorial standards →</a> · <a href="/methodology/">How we research →</a></p>
+  </div></section>
+</BaseLayout>

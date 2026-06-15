@@ -1,0 +1,33 @@
+---
+/* Accessibility: reader-controlled text size (persisted). Buttons, so no label issues. */
+---
+<div class="textsize" role="group" aria-label="Text size">
+  <span class="ts-label" aria-hidden="true">Text</span>
+  <button type="button" class="ts-btn" data-size="normal" aria-label="Normal text size">A</button>
+  <button type="button" class="ts-btn" data-size="large" aria-label="Larger text size">A+</button>
+  <button type="button" class="ts-btn" data-size="xlarge" aria-label="Largest text size">A++</button>
+</div>
+<style>
+  .textsize { display:inline-flex; align-items:center; gap:4px; }
+  .ts-label { font-size: var(--text-xs); color: var(--ink-500); margin-right:2px; }
+  .ts-btn { border:1px solid var(--line-strong); background:#fff; border-radius:var(--radius-sm); cursor:pointer;
+    color: var(--brand-800); font-weight:700; line-height:1; padding:6px 8px; min-height:36px; }
+  .ts-btn[data-size="normal"]{ font-size:.8rem; } .ts-btn[data-size="large"]{ font-size:.95rem; } .ts-btn[data-size="xlarge"]{ font-size:1.1rem; }
+  .ts-btn:hover { border-color: var(--brand-600); }
+  .ts-btn[aria-pressed="true"] { background: var(--brand-800); color:#fff; border-color: var(--brand-800); }
+  @media print { .textsize { display:none; } }
+</style>
+<script is:inline>
+(function(){
+  var MAP={normal:'100%',large:'112%',xlarge:'125%'};
+  var btns=Array.prototype.slice.call(document.querySelectorAll('.ts-btn'));
+  function current(){ try{ return localStorage.getItem('rip-textsize')||'normal'; }catch(e){ return 'normal'; } }
+  function apply(size){
+    document.documentElement.style.fontSize=MAP[size]||'100%';
+    try{ localStorage.setItem('rip-textsize',size); }catch(e){}
+    btns.forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-size')===size?'true':'false'); });
+  }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ apply(b.getAttribute('data-size')); }); });
+  apply(current());
+})();
+</script>

@@ -1,0 +1,24 @@
+---
+/* Minimal, header/footer-free version for embedding via <iframe> on other sites. */
+import '../../styles/tokens.css';
+import '../../styles/base.css';
+import AffordabilityCalculator from '../../components/AffordabilityCalculator.astro';
+import { SITE } from '../../site.config';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Affordability calculator — {SITE.name}</title>
+  </head>
+  <body style="background:transparent;">
+    <main id="main" style="padding: 1rem;">
+      <AffordabilityCalculator />
+      <p style="text-align:center; font-size:.8rem; margin-top:1rem;">
+        Powered by <a href={SITE.url} target="_blank" rel="noopener">Retire in Pattaya</a> · information only, not advice
+      </p>
+    </main>
+  </body>
+</html>

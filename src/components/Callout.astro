@@ -1,0 +1,14 @@
+---
+/* Reusable callout. Usage:
+   <Callout variant="warn" title="Rules change">…content…</Callout> */
+interface Props { variant?: 'info' | 'ok' | 'warn' | 'danger'; title?: string; icon?: string; }
+const { variant = 'info', title, icon } = Astro.props;
+const defaultIcon = { info: 'ℹ️', ok: '✅', warn: '⚠️', danger: '🚩' }[variant];
+---
+<aside class={`callout callout-${variant}`}>
+  <span class="callout-icon" aria-hidden="true">{icon ?? defaultIcon}</span>
+  <div>
+    {title && <p class="callout-title">{title}</p>}
+    <div class="callout-body"><slot /></div>
+  </div>
+</aside>

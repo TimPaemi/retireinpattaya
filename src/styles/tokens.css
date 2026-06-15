@@ -1,0 +1,92 @@
+/* ============================================================================
+   RETIRE IN PATTAYA — DESIGN TOKENS  (the single source of truth for styling)
+   "Calm coastal": soft blues, warm sand, teal accents. Mature, premium, honest.
+   Accessibility is a feature: large type, high contrast (WCAG AA+), clear focus.
+   To re-theme the whole site, change the values here — nothing else.
+============================================================================ */
+:root {
+  /* ---- Brand colour: deep sea (headings, brand, primary actions) ---- */
+  --brand-900: #0a3a4a;
+  --brand-800: #0e4d64;   /* primary brand */
+  --brand-700: #145d77;
+  --brand-600: #1b7f8c;   /* teal accent */
+  --brand-500: #2a9d8f;   /* lighter teal */
+  --brand-100: #d7eaef;   /* soft fill */
+  --brand-050: #eef6f8;   /* faintest tint */
+
+  /* ---- Warm accent: clay/sunset, used sparingly for emphasis & CTAs ---- */
+  --accent-700: #9c4420;  /* AA text on white */
+  --accent-600: #b5552a;
+  --accent-500: #c2683e;
+  --accent-100: #f6e6dc;
+
+  /* ---- Sand & neutral surfaces ---- */
+  --sand-100: #f5efe5;    /* warm sand panel */
+  --sand-050: #faf6ef;
+
+  /* ---- Ink & text (high contrast on white) ---- */
+  --ink-900: #16242b;     /* body text ~ 14:1 on white */
+  --ink-700: #2c3c44;
+  --ink-500: #4a5a62;     /* muted/meta text ~ 7:1 */
+  --ink-300: #93a4ad;    /* placeholder text only */
+
+  /* ---- Surfaces & lines ---- */
+  --surface: #ffffff;
+  --surface-soft: #f7f9fa;
+  --surface-sunken: #eef2f4;
+  --line: #dde5e8;
+  --line-strong: #c4d0d5;
+
+  /* ---- Semantic (used in callouts) ---- */
+  --ok-700: #1d6b3f;  --ok-100: #e2f3e8;
+  --warn-700: #8a5a00; --warn-100: #fbf0d6;
+  --info-700: #145d77; --info-100: #d7eaef;
+  --danger-700: #9a2a2a; --danger-100: #f7e1e1;
+
+  /* ---- Typography ----
+     Serif headings = editorial authority/warmth. Sans body = maximum legibility.
+     No web-font downloads = fast pages, zero maintenance. */
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", Menlo, Consolas, monospace;
+
+  /* Type scale (a touch larger than typical — audience skews 50+) */
+  --text-xs:   0.875rem;   /* 14px */
+  --text-sm:   1rem;       /* 16px */
+  --text-base: 1.1875rem;  /* 19px — body default */
+  --text-lg:   1.375rem;   /* 22px */
+  --text-xl:   1.625rem;   /* 26px */
+  --text-2xl:  2rem;       /* 32px */
+  --text-3xl:  2.5rem;     /* 40px */
+  --text-4xl:  3.125rem;   /* 50px */
+
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.65;  /* generous for readability */
+
+  /* ---- Spacing scale (8px base) ---- */
+  --space-1: 0.25rem;  --space-2: 0.5rem;  --space-3: 0.75rem; --space-4: 1rem;
+  --space-5: 1.5rem;   --space-6: 2rem;    --space-8: 3rem;    --space-10: 4rem;
+  --space-12: 6rem;    --space-16: 8rem;
+
+  /* ---- Layout ---- */
+  --container: 72rem;      /* 1152px max */
+  --container-narrow: 44rem; /* ~704px ideal reading measure */
+  --container-wide: 84rem;
+
+  /* ---- Radius, shadow, motion ---- */
+  --radius-sm: 6px; --radius: 12px; --radius-lg: 18px; --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgba(16,40,50,.06), 0 1px 3px rgba(16,40,50,.08);
+  --shadow: 0 4px 12px rgba(16,40,50,.08), 0 2px 4px rgba(16,40,50,.06);
+  --shadow-lg: 0 12px 32px rgba(16,40,50,.12), 0 4px 8px rgba(16,40,50,.06);
+  --ring: 0 0 0 3px var(--brand-100), 0 0 0 5px var(--brand-600);
+  --transition: 160ms ease;
+
+  /* ---- Z ---- */
+  --z-header: 50; --z-modal: 100;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}

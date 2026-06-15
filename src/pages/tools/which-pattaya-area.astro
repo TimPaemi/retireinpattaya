@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AreaMatcher from '../../components/AreaMatcher.astro';
+---
+<BaseLayout title="Which Pattaya Area Suits You? (Quiz)" description="Answer four quick questions and see which Pattaya area fits you best — Jomtien, Pratumnak Hill, Bang Saray, Naklua or Central — with reasons.">
+  <section class="section"><div class="container">
+    <div class="container-narrow" style="margin-inline:0;">
+      <Breadcrumbs crumbs={[{ label: 'Tools', href: '/tools/' }, { label: 'Which area suits you?' }]} />
+      <p class="eyebrow">Free interactive tool</p>
+      <h1>Which Pattaya area suits you?</h1>
+      <p class="lead">Four quick questions, then a best-fit recommendation with the runners-up ranked. A starting point for where to rent first.</p>
+    </div>
+    <AreaMatcher />
+  </div></section>
+</BaseLayout>

@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Disclaimer from '../components/Disclaimer.astro';
+---
+<BaseLayout title="How We Research (Methodology)" description="How our guides are researched and how our interactive tools work — the benchmarks behind them, their limits, and how often we update.">
+  <section class="section"><div class="container container-narrow prose flow">
+    <Breadcrumbs crumbs={[{ label: 'How We Research' }]} />
+    <h1>How We Research &amp; How Our Tools Work</h1>
+    <p class="lead">Transparency is part of trust. Here's exactly how we produce a guide, and what our calculators do and don't do.</p>
+
+    <h2>The research process for every guide</h2>
+    <ol>
+      <li><strong>Gather &amp; verify the volatile facts</strong> against official sources, recording the source link and the date checked.</li>
+      <li><strong>Draft in plain English</strong> in our standard warm, honest voice — covering downsides, not just upsides.</li>
+      <li><strong>Quality-check</strong> against a checklist: every figure sourced and dated, disclaimers present, claims balanced.</li>
+      <li><strong>Publish &amp; date</strong>, then schedule re-review because the rules change.</li>
+    </ol>
+
+    <h2>How our calculators work</h2>
+    <p>Our tools run entirely in your browser. We never see, store or transmit the numbers you enter — there's no server and no database. Each tool uses a set of editable benchmark figures (for example, typical monthly costs at different lifestyle tiers) that we keep in a single, openly-documented configuration and review on a schedule.</p>
+
+    <h2>What the tools are — and aren't</h2>
+    <p>They're a fast, honest <em>starting point</em> to help you think, using reasonable benchmark ranges. They are <strong>not</strong> a personalised forecast of your costs, and they can't know your circumstances. Treat the output as "roughly, here's the shape of it," then pressure-test it with real quotes and a professional.</p>
+
+    <Disclaimer topic="general" />
+  </div></section>
+</BaseLayout>

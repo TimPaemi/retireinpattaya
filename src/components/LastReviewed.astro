@@ -1,0 +1,24 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props {
+  lastReviewed: Date;
+  updated?: Date;
+  author?: { name: string; role: string; slug?: string };
+  reviewer?: { name: string; role: string };
+  verifyPending?: boolean;
+}
+const { lastReviewed, updated, author, reviewer, verifyPending } = Astro.props;
+const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<div class="meta-row reviewed">
+  {author && (
+    <span>By <strong>{author.name}</strong>{author.role ? `, ${author.role}` : ''}</span>
+  )}
+  {reviewer && <span>· Reviewed by <strong>{reviewer.name}</strong></span>}
+  <span>· Last reviewed <time datetime={lastReviewed.toISOString()}>{fmt(lastReviewed)}</time></span>
+  {updated && <span>· Updated {fmt(updated)}</span>}
+  {verifyPending && <span class="verify-flag">⚠ Figures being verified</span>}
+</div>
+<style>
+  .reviewed { padding-block: var(--space-3); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+</style>

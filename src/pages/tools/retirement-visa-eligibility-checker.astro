@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Disclaimer from '../../components/Disclaimer.astro';
+import VisaChecker from '../../components/VisaChecker.astro';
+---
+<BaseLayout title="Retirement Visa Eligibility Checker (Thailand)" description="Answer a few questions to see which Thai retirement visa route likely fits you, with a document checklist and links to the official sources. Information only.">
+  <section class="section"><div class="container">
+    <div class="container-narrow" style="margin-inline:0;">
+      <Breadcrumbs crumbs={[{ label: 'Tools', href: '/tools/' }, { label: 'Visa eligibility checker' }]} />
+      <p class="eyebrow">Free interactive tool</p>
+      <h1>Retirement visa eligibility checker</h1>
+      <p class="lead">A quick, honest orientation to the likely route(s) for your situation — then verify the details on the official sources. This is guidance, not a decision.</p>
+    </div>
+    <VisaChecker />
+    <div class="container-narrow" style="margin-inline:0;"><Disclaimer topic="visa" /></div>
+  </div></section>
+</BaseLayout>

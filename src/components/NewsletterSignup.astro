@@ -1,0 +1,33 @@
+---
+import { FORMS } from '../site.config';
+interface Props { heading?: string; blurb?: string; }
+const {
+  heading = 'Get the honest version, by email',
+  blurb = 'Occasional, no-hype updates for people seriously weighing a move. Unsubscribe anytime. We never share your address.',
+} = Astro.props;
+const live = Boolean(FORMS.newsletterAction);
+---
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <h2 class="mt-0">{heading}</h2>
+    <p>{blurb}</p>
+    {live ? (
+      <form class="newsletter-form" action={FORMS.newsletterAction} method="post">
+        {Object.entries(FORMS.newsletterHiddenFields).map(([k, v]) => <input type="hidden" name={k} value={v} />)}
+        <label class="visually-hidden" for="nl-email">Email address</label>
+        <input id="nl-email" type="email" name="email_address" required placeholder="you@email.com" />
+        <button class="btn btn-accent" type="submit">Join the list</button>
+      </form>
+    ) : (
+      <p class="newsletter-soon">📨 Email sign-up opens soon. <span class="text-muted">(Operator: paste your email provider's form URL into <code>FORMS.newsletterAction</code> in <code>site.config.ts</code> to switch this on.)</span></p>
+    )}
+  </div>
+</section>
+<style>
+  .newsletter { margin-top: var(--space-10); background: linear-gradient(180deg, var(--brand-050), var(--surface)); border: 1px solid var(--brand-100); border-radius: var(--radius-lg); padding: var(--space-6); }
+  .newsletter-inner { max-width: 40rem; }
+  .newsletter-form { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-4); }
+  .newsletter-form input { flex: 1 1 16rem; padding: var(--space-3) var(--space-4); border: 2px solid var(--line-strong); border-radius: var(--radius-sm); min-height: 50px; font-size: var(--text-base); }
+  .newsletter-soon { margin-top: var(--space-3); font-weight: 600; }
+  .newsletter-soon code { font-size: .85em; }
+</style>

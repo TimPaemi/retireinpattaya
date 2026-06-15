@@ -1,0 +1,112 @@
+---
+import { VISA_OFFICIAL, VISA_CHECKLIST } from '../data/visaRoutes';
+const payload = JSON.stringify({ VISA_OFFICIAL, VISA_CHECKLIST });
+---
+<section class="vchk" aria-labelledby="v-title">
+  <script type="application/json" id="rip-visa" set:html={payload}></script>
+  <div class="calc-grid">
+    <form id="v-form" class="calc-inputs">
+      <h2 id="v-title" class="calc-h">Your situation</h2>
+      <div class="field">
+        <label for="v-age">Your age</label>
+        <input id="v-age" type="number" min="18" max="100" step="1" placeholder="63" />
+      </div>
+      <div class="field">
+        <label for="v-nat">Nationality</label>
+        <select id="v-nat">
+          <option value="uk">United Kingdom</option>
+          <option value="us">United States</option>
+          <option value="ca">Canada</option>
+          <option value="au">Australia</option>
+          <option value="de">Germany</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <fieldset class="field">
+        <legend>Can you meet the financial requirement?</legend>
+        <label class="tier-option"><input type="radio" name="fin" value="both" /><span class="tier-body"><span class="tier-label">Both a lump sum and monthly income</span></span></label>
+        <label class="tier-option"><input type="radio" name="fin" value="deposit" checked /><span class="tier-body"><span class="tier-label">A lump-sum deposit</span></span></label>
+        <label class="tier-option"><input type="radio" name="fin" value="income" /><span class="tier-body"><span class="tier-label">A monthly income</span></span></label>
+        <label class="tier-option"><input type="radio" name="fin" value="neither" /><span class="tier-body"><span class="tier-label">Neither / not sure yet</span></span></label>
+      </fieldset>
+      <fieldset class="field">
+        <legend>Anything else true?</legend>
+        <label><input type="checkbox" id="v-married" /> Married to a Thai national</label><br />
+        <label><input type="checkbox" id="v-before" /> I'd prefer to apply before I travel</label><br />
+        <label><input type="checkbox" id="v-high" /> I have a high pension / income</label>
+      </fieldset>
+    </form>
+
+    <div class="calc-results" aria-live="polite">
+      <div class="verdict is-good">
+        <p class="verdict-eyebrow">Likely route(s)</p>
+        <p class="verdict-head" id="v-head">Enter your age to begin</p>
+      </div>
+      <div id="v-routes"></div>
+      <div class="watch">
+        <h3 class="mt-0">Your document checklist</h3>
+        <ul id="v-checklist"></ul>
+      </div>
+      <div class="watch">
+        <h3 class="mt-0">Verify on the official sources</h3>
+        <ul>
+          <li><a href={VISA_OFFICIAL.immigration} rel="nofollow noopener" target="_blank">Thai Immigration Bureau</a></li>
+          <li><a href={VISA_OFFICIAL.ltr} rel="nofollow noopener" target="_blank">LTR visa (BOI)</a></li>
+          <li><a href={VISA_OFFICIAL.evisa} rel="nofollow noopener" target="_blank">Thai e-Visa portal</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .vchk { margin-block: var(--space-6); }
+  .route { background:#fff; border:1px solid var(--line); border-left:5px solid var(--brand-500); border-radius:var(--radius); padding:var(--space-4); margin-bottom:var(--space-3); }
+  .route.primary { border-left-color: var(--ok-700); box-shadow: var(--shadow-sm); }
+  .route h4 { margin:0 0 var(--space-1); }
+  .route .why { font-size:var(--text-sm); color:var(--ink-700); }
+  .route .vflag { font-size:var(--text-xs); color:var(--warn-700); display:block; margin-top:var(--space-2); }
+  .watch { background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:var(--space-4);margin-top:var(--space-4); }
+  .watch ul { padding-left:var(--space-5);} .watch li+li{ margin-top:var(--space-2);} 
+</style>
+
+<script is:inline>
+(function(){
+  var data = JSON.parse(document.getElementById('rip-visa').textContent);
+  var $=function(id){return document.getElementById(id);};
+  if(!$('v-form')) return;
+  var natNote={ uk:'As a UK national, note the <strong>frozen State Pension</strong> issue in Thailand — see the Money section.', us:'As a US citizen, you remain subject to US worldwide taxation — get cross-border tax advice.', au:'Check Australian Age Pension portability rules before a permanent move.', de:'Check German pension and tax treaty details for residents abroad.', other:'Check your home country’s pension and tax rules for living abroad.' };
+  function route(primary,title,why,flag){ return '<div class="route'+(primary?' primary':'')+'"><h4>'+(primary?'★ ':'')+title+'</h4><p class="why">'+why+'</p>'+(flag?'<span class="vflag">'+flag+'</span>':'')+'</div>'; }
+  function render(){
+    var age=parseInt($('v-age').value,10); var fin=(document.querySelector('input[name=fin]:checked')||{}).value;
+    var married=$('v-married').checked, before=$('v-before').checked, high=$('v-high').checked, nat=$('v-nat').value;
+    var out=[]; var head='';
+    if(!age){ $('v-head').textContent='Enter your age to begin'; $('v-routes').innerHTML=''; $('v-checklist').innerHTML=''; return; }
+    if(age<50){
+      head='Under 50 — standard retirement routes don’t apply yet';
+      if(high) out.push(route(true,'LTR visa (wealthy-pensioner / other tracks)','Some LTR tracks aren’t age-50-gated and may fit a high earner.','⟨VERIFY current LTR criteria⟩'));
+      if(married) out.push(route(!high,'Marriage-based extension','Being married to a Thai national opens a different route with its own (often lower) financial test.','⟨VERIFY marriage-route requirements⟩'));
+      out.push(route(false,'Plan ahead for 50+','The popular retirement extension needs you to be 50+. Consider timing, or a non-retirement visa meanwhile.',''));
+    } else {
+      head='You’re 50+ — the main retirement routes are open to you';
+      if(high){ out.push(route(true,'LTR visa — pensioner track','A high income may qualify you for a long stay with far less yearly admin.','⟨VERIFY income threshold + benefits⟩')); }
+      if(fin==='deposit'||fin==='income'||fin==='both'){
+        out.push(route(!high,'Retirement extension (from a Non-O)','The most common route: enter on a Non-O, extend for retirement each year on a deposit and/or income basis.','⟨VERIFY deposit / income amounts + seasoning⟩'));
+        if(before) out.push(route(false,'O-A long-stay (apply from home)','Suits applying before you travel — but note the mandatory health-insurance condition.','⟨VERIFY insurance minimum⟩'));
+        out.push(route(false,'O-X long-stay (if eligible)','A longer multi-year option for some nationalities, with a higher financial bar.','⟨VERIFY O-X eligibility for '+nat.toUpperCase()+'⟩'));
+      }
+      if(fin==='neither'){
+        out.push(route(true,'Financial requirement not yet met','You may not currently meet the money test. Options: build the required savings/income, explore the income route, or — cautiously and legally — get professional help. Avoid anyone promising to "bypass" the rules.','⟨VERIFY current requirements⟩'));
+      }
+      if(married) out.push(route(false,'Marriage-based extension (alternative)','As you’re married to a Thai national, this is an alternative with different (often lower) financial requirements.','⟨VERIFY marriage-route requirements⟩'));
+    }
+    $('v-head').textContent=head;
+    out.push('<p class="route" style="border-left-color:var(--info-700)">'+natNote[nat]+'</p>');
+    $('v-routes').innerHTML=out.join('');
+    $('v-checklist').innerHTML=data.VISA_CHECKLIST.map(function(c){return '<li>'+c+'</li>';}).join('');
+  }
+  $('v-form').addEventListener('input',render);
+  $('v-form').addEventListener('change',render);
+  render();
+})();
+</script>

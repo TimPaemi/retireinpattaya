@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+const authors = await getCollection('authors');
+---
+<BaseLayout title="Our Authors & Reviewers" description="The people behind Retire in Pattaya — who researches, writes and reviews our guidance.">
+  <section class="section"><div class="container">
+    <div class="container-narrow" style="margin-inline:0;">
+      <Breadcrumbs crumbs={[{ label: 'Authors' }]} />
+      <h1>Who's behind this</h1>
+      <p class="lead">Trust starts with knowing who's talking to you. Here are the people who research, write and review our guidance.</p>
+    </div>
+    <h2 class="visually-hidden">Our team</h2>
+    <div class="grid grid-2 mt-8">
+      {authors.map((a) => (
+        <a class="card card-link" href={`/authors/${a.slug}/`}>
+          <h3 class="mt-0">{a.data.name}</h3>
+          <p class="eyebrow">{a.data.role}</p>
+          <p class="text-muted">{a.data.shortBio}</p>
+        </a>
+      ))}
+    </div>
+  </div></section>
+</BaseLayout>

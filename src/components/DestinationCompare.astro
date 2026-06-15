@@ -1,0 +1,85 @@
+---
+import { DESTINATIONS, DIMENSIONS } from '../data/destinations';
+const dots = (n: number) => '●'.repeat(n) + '○'.repeat(5 - n);
+const overall = (d: any) => DIMENSIONS.reduce((s, dim) => s + d[dim.key], 0);
+const rows = [...DESTINATIONS].sort((a, b) => overall(b) - overall(a));
+---
+<section class="dc">
+  <div class="dc-controls">
+    <div class="dc-filter" role="group" aria-label="Filter destinations">
+      <button class="btn btn-ghost is-on" data-filter="all">All</button>
+      <button class="btn btn-ghost" data-filter="Thailand">Thailand only</button>
+      <button class="btn btn-ghost" data-filter="Country">Other countries</button>
+    </div>
+    <label class="dc-sort">Sort by
+      <select id="dc-sortsel">
+        <option value="overall">Overall</option>
+        {DIMENSIONS.map((d) => <option value={d.key}>{d.label}</option>)}
+      </select>
+    </label>
+  </div>
+
+  <div class="table-wrap">
+    <table id="dc-table">
+      <thead>
+        <tr>
+          <th scope="col">Destination</th>
+          {DIMENSIONS.map((d) => <th scope="col" class="dc-sortable" data-key={d.key} tabindex="0" role="button" title={`Sort by ${d.label}`}>{d.label}</th>)}
+          <th scope="col">Honest downside</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((r) => (
+          <tr data-group={r.group} data-overall={overall(r)} data-afford={r.afford} data-healthcare={r.healthcare} data-visa={r.visa} data-warmth={r.warmth} data-english={r.english} data-community={r.community} data-safety={r.safety} data-proximity={r.proximity}>
+            <th scope="row">{r.name}</th>
+            {DIMENSIONS.map((d) => <td class="dc-rating" aria-label={`${(r as any)[d.key]} out of 5`}><span class="dots">{dots((r as any)[d.key])}</span></td>)}
+            <td class="dc-down">{r.downside}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="text-muted dc-note">Ratings are illustrative editorial orientation (1–5, higher = more favourable for a retiree), not precise data. Verify anything that matters for your decision.</p>
+</section>
+
+<style>
+  .dc { margin-block: var(--space-6); }
+  .dc-controls { display:flex; flex-wrap:wrap; gap: var(--space-4); justify-content:space-between; align-items:center; margin-bottom: var(--space-4); }
+  .dc-filter { display:flex; gap: var(--space-2); flex-wrap:wrap; }
+  .dc-filter .btn { padding: var(--space-2) var(--space-4); min-height:44px; }
+  .dc-filter .is-on { background: var(--brand-800); color:#fff; border-color: var(--brand-800); }
+  .dc-sort select { margin-left: var(--space-2); padding: var(--space-2) var(--space-3); border:2px solid var(--line-strong); border-radius: var(--radius-sm); min-height:44px; }
+  #dc-table th[scope="row"] { font-weight:700; color: var(--brand-900); background: var(--brand-050); white-space:nowrap; }
+  .dc-sortable { cursor:pointer; user-select:none; white-space:nowrap; }
+  .dc-sortable:hover, .dc-sortable:focus-visible { background: var(--brand-100); }
+  .dc-rating .dots { color: var(--brand-600); letter-spacing:1px; font-size:.85em; }
+  .dc-down { font-size: var(--text-sm); color: var(--ink-500); min-width:14rem; }
+  .dc-note { font-size: var(--text-xs); margin-top: var(--space-3); }
+</style>
+
+<script is:inline>
+(function(){
+  var table=document.getElementById('dc-table'); if(!table) return;
+  var tbody=table.tBodies[0];
+  function rowsArr(){ return Array.prototype.slice.call(tbody.rows); }
+  function sortBy(key){
+    var rs=rowsArr();
+    rs.sort(function(a,b){ return parseFloat(b.getAttribute('data-'+key)) - parseFloat(a.getAttribute('data-'+key)); });
+    rs.forEach(function(r){ tbody.appendChild(r); });
+  }
+  document.getElementById('dc-sortsel').addEventListener('change',function(){ sortBy(this.value); });
+  Array.prototype.forEach.call(document.querySelectorAll('.dc-sortable'),function(th){
+    function go(){ var k=th.getAttribute('data-key'); document.getElementById('dc-sortsel').value=k; sortBy(k); }
+    th.addEventListener('click',go);
+    th.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); go(); } });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-filter]'),function(btn){
+    btn.addEventListener('click',function(){
+      Array.prototype.forEach.call(document.querySelectorAll('[data-filter]'),function(b){ b.classList.remove('is-on'); });
+      btn.classList.add('is-on');
+      var f=btn.getAttribute('data-filter');
+      rowsArr().forEach(function(r){ r.style.display=(f==='all'||r.getAttribute('data-group')===f)?'':'none'; });
+    });
+  });
+})();
+</script>

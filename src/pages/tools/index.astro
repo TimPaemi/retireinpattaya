@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { TOOLS } from '../../site.config';
+---
+<BaseLayout title="Free Retirement Tools" description="Free, private, in-browser tools to help you plan retiring in Pattaya — starting with the affordability calculator.">
+  <section class="section"><div class="container">
+    <div class="container-narrow" style="margin-inline:0;">
+      <Breadcrumbs crumbs={[{ label: 'Tools' }]} />
+      <h1>Free planning tools</h1>
+      <p class="lead">Private by design — every tool runs in your browser. We never see your numbers.</p>
+    </div>
+    <h2 class="visually-hidden">Available tools</h2>
+    <div class="grid grid-2 mt-8">
+      <div class="card">
+        <p class="eyebrow">Available now</p>
+        <h3 class="mt-0">Compare Retirement Destinations</h3>
+        <p class="text-muted">Sort and filter Pattaya vs other Thai cities and countries across cost, healthcare, visas, climate and community.</p>
+        <a class="btn btn-accent" href="/compare/">Open the tool</a>
+      </div>
+      {TOOLS.map((t) => (
+        <div class="card">
+          <p class="eyebrow">{t.status === 'live' ? 'Available now' : 'Coming soon'}</p>
+          <h3 class="mt-0">{t.title}</h3>
+          <p class="text-muted">{t.summary}</p>
+          {t.status === 'live'
+            ? <a class="btn btn-accent" href={`/tools/${t.slug}/`}>Open the tool</a>
+            : <span class="pill">In development</span>}
+        </div>
+      ))}
+    </div>
+  </div></section>
+</BaseLayout>

@@ -1,0 +1,48 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { SITE } from '../../site.config';
+
+export async function getStaticPaths() {
+  const authors = await getCollection('authors');
+  return authors.map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const a = entry.data;
+const { Content } = await entry.render();
+
+// Guides written by this author
+const guides = await getCollection('guides', ({ data }) => (import.meta.env.PROD ? !data.draft : true));
+const theirs = [];
+for (const g of guides) {
+  const au = await getEntry(g.data.author);
+  if (au.slug === entry.slug) theirs.push(g);
+}
+
+const personSchema = {
+  '@context': 'https://schema.org', '@type': 'Person',
+  name: a.name, jobTitle: a.role, description: a.shortBio,
+  url: new URL(`/authors/${entry.slug}/`, SITE.url).href,
+  ...(a.sameAs.length ? { sameAs: a.sameAs } : {}),
+  worksFor: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+};
+---
+<BaseLayout title={a.name} description={a.shortBio} schemas={[personSchema]}>
+  <section class="section"><div class="container container-narrow prose flow">
+    <Breadcrumbs crumbs={[{ label: 'Authors', href: '/authors/' }, { label: a.name }]} />
+    <p class="eyebrow">{a.role}</p>
+    <h1>{a.name}</h1>
+    {a.credentials.length > 0 && (
+      <ul class="creds">{a.credentials.map((c) => <li>{c}</li>)}</ul>
+    )}
+    <Content />
+    {theirs.length > 0 && (
+      <section class="mt-8">
+        <h2>Guides by {a.name.split(' ')[0]}</h2>
+        <ul>{theirs.map((g) => <li><a href={`/${g.data.pillar}/${g.slug}/`}>{g.data.title}</a></li>)}</ul>
+      </section>
+    )}
+  </div></section>
+</BaseLayout>
+<style>.creds { background: var(--surface-soft); border:1px solid var(--line); border-radius: var(--radius); padding: var(--space-4) var(--space-5); list-style: none; } .creds li { padding-left: 1.4em; position: relative; } .creds li::before { content: '✓'; position:absolute; left:0; color: var(--ok-700); font-weight:700; }</style>

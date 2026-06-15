@@ -1,0 +1,95 @@
+---
+import { SITE, PRIMARY_NAV } from '../site.config';
+import TextSize from './TextSize.astro';
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path.startsWith(href);
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand" aria-label={`${SITE.name} — home`}>
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" role="img">
+          <path d="M3 14c3 1.5 5 1.5 9 0s6-1.5 9 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="17" cy="7" r="3.2" fill="currentColor"/>
+          <path d="M3 18c3 1.5 5 1.5 9 0s6-1.5 9 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".5"/>
+        </svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">Retire in Pattaya</span>
+        <span class="brand-tag">honest guidance for a big decision</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+      <span class="visually-hidden">Menu</span>
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
+    </button>
+
+    <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+      <ul>
+        {PRIMARY_NAV.map((item) => (
+          <li>
+            <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <TextSize />
+      <a class="nav-search" href="/search/" aria-label="Search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m21 21-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>Search</span>
+      </a>
+      <a class="btn btn-accent nav-cta" href="/tools/can-i-afford-to-retire-in-pattaya/">Can I afford it?</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header { position: sticky; top: 0; z-index: var(--z-header); background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); min-height: 72px; }
+  .brand { display: inline-flex; align-items: center; gap: var(--space-3); text-decoration: none; color: var(--brand-800); }
+  .brand-mark { color: var(--brand-600); display: inline-grid; place-items: center; }
+  .brand-name { font-family: var(--font-serif); font-weight: 600; font-size: var(--text-lg); color: var(--brand-900); display: block; line-height: 1.1; }
+  .brand-tag { font-size: var(--text-xs); color: var(--ink-500); display: block; }
+  .primary-nav { display: flex; align-items: center; gap: var(--space-5); }
+  .primary-nav ul { list-style: none; padding: 0; margin: 0; display: flex; align-items: center; gap: var(--space-4); }
+  .primary-nav a { text-decoration: none; color: var(--ink-700); font-weight: 600; font-size: var(--text-sm); padding: var(--space-2) 0; }
+  .primary-nav a:hover { color: var(--brand-700); }
+  .primary-nav a[aria-current="page"] { color: var(--brand-800); box-shadow: inset 0 -2px 0 var(--accent-500); }
+  .nav-cta { white-space: nowrap; }
+  .nav-search { display:inline-flex; align-items:center; gap:6px; color:var(--ink-700); text-decoration:none; font-weight:600; font-size:var(--text-sm); }
+  .nav-search:hover { color:var(--brand-700); }
+  .nav-toggle { display: none; background: transparent; border: 1px solid var(--line-strong); border-radius: var(--radius-sm); width: 48px; height: 44px; cursor: pointer; }
+  .nav-toggle-bars, .nav-toggle-bars::before, .nav-toggle-bars::after { display: block; width: 22px; height: 2px; background: var(--brand-800); margin: 0 auto; position: relative; transition: var(--transition); }
+  .nav-toggle-bars::before, .nav-toggle-bars::after { content: ""; position: absolute; left: 0; }
+  .nav-toggle-bars::before { top: -7px; } .nav-toggle-bars::after { top: 7px; }
+
+  @media (max-width: 880px) {
+    .brand-tag { display: none; }
+    .nav-toggle { display: block; }
+    .primary-nav {
+      position: absolute; inset: 72px 0 auto 0; flex-direction: column; align-items: stretch;
+      background: var(--surface); border-bottom: 1px solid var(--line); padding: var(--space-4) var(--space-5) var(--space-6);
+      gap: var(--space-3); box-shadow: var(--shadow); display: none;
+    }
+    .primary-nav.open { display: flex; }
+    .primary-nav ul { flex-direction: column; align-items: stretch; gap: 0; }
+    .primary-nav li { border-bottom: 1px solid var(--line); }
+    .primary-nav a { display: block; padding: var(--space-3) 0; font-size: var(--text-base); }
+    .nav-cta { margin-top: var(--space-3); justify-content: center; }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var btn = document.querySelector('.nav-toggle');
+    var nav = document.getElementById('primary-nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  })();
+</script>

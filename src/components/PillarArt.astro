@@ -1,0 +1,47 @@
+---
+/* Calm coastal banner art — abstract, dignified, no people or clichés.
+   A serene horizon (sun + layered waves) tinted per pillar. Pure inline SVG. */
+interface Props { variant?: string; height?: number; }
+const { variant = 'home', height = 220 } = Astro.props;
+
+// deterministic accent per pillar slug
+const palettes: Record<string, { sun: string; sky1: string; sky2: string }> = {
+  healthcare:        { sun: '#f0b429', sky1: '#eaf5f7', sky2: '#ffffff' },
+  visas:             { sun: '#e8893b', sky1: '#fef3e9', sky2: '#ffffff' },
+  money:             { sun: '#3aa17e', sky1: '#e9f5ef', sky2: '#ffffff' },
+  'cost-of-living':  { sun: '#e0a92e', sky1: '#fbf3e2', sky2: '#ffffff' },
+  housing:           { sun: '#5a93c2', sky1: '#eaf2f8', sky2: '#ffffff' },
+  'daily-life':      { sun: '#e87a5d', sky1: '#fdeee9', sky2: '#ffffff' },
+  'safety-scams':    { sun: '#4d8fa6', sky1: '#e9f3f6', sky2: '#ffffff' },
+  'getting-settled': { sun: '#7aa23f', sky1: '#f1f6e8', sky2: '#ffffff' },
+  'legal-end-of-life': { sun: '#b08bbf', sky1: '#f4eef7', sky2: '#ffffff' },
+  'reality-checks':  { sun: '#d98a3a', sky1: '#fbf1e6', sky2: '#ffffff' },
+  home:              { sun: '#f0b429', sky1: '#eaf5f7', sky2: '#fbf6ef' },
+};
+const p = palettes[variant] ?? palettes.home;
+const uid = `art-${variant}`;
+---
+<svg class="pillar-art" viewBox="0 0 1200 360" style={`height:${height}px`} role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id={`${uid}-sky`} x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color={p.sky1} />
+      <stop offset="1" stop-color={p.sky2} />
+    </linearGradient>
+    <radialGradient id={`${uid}-sun`} cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color={p.sun} stop-opacity="0.95" />
+      <stop offset="1" stop-color={p.sun} stop-opacity="0.65" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="360" fill={`url(#${uid}-sky)`} />
+  <circle cx="930" cy="120" r="62" fill={`url(#${uid}-sun)`} />
+  <circle cx="930" cy="120" r="92" fill={p.sun} opacity="0.10" />
+  <!-- distant headland -->
+  <path d="M0 250 Q 250 205 520 240 T 1200 232 V360 H0 Z" fill="#1b7f8c" opacity="0.16" />
+  <!-- wave layers -->
+  <path d="M0 270 Q 200 250 400 272 T 800 272 T 1200 270 V360 H0 Z" fill="#2a9d8f" opacity="0.22" />
+  <path d="M0 296 Q 220 276 440 298 T 880 298 T 1200 296 V360 H0 Z" fill="#1b7f8c" opacity="0.30" />
+  <path d="M0 322 Q 240 304 480 324 T 960 324 T 1200 322 V360 H0 Z" fill="#0e4d64" opacity="0.42" />
+</svg>
+<style>
+  .pillar-art { display:block; width:100%; border-radius: var(--radius-lg); border:1px solid var(--line); }
+</style>

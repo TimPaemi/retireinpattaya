@@ -1,0 +1,65 @@
+---
+import { CURRENCIES } from '../data/benchmarks';
+const payload = JSON.stringify({ CURRENCIES });
+---
+<section class="fxt" aria-labelledby="fx-title">
+  <script type="application/json" id="rip-fx" set:html={payload}></script>
+  <div class="calc-grid">
+    <form id="fx-form" class="calc-inputs">
+      <h2 id="fx-title" class="calc-h">Your pension &amp; the exchange rate</h2>
+      <div class="field">
+        <label for="fx-cur">Currency</label>
+        <select id="fx-cur">{CURRENCIES.filter((c)=>c.code!=='THB').map((c)=><option value={c.code}>{c.code} ({c.symbol})</option>)}</select>
+      </div>
+      <div class="field">
+        <label for="fx-inc">Monthly income (home currency)</label>
+        <div class="input-money"><span class="cur-symbol" data-fxsym>£</span><input id="fx-inc" type="number" min="0" step="50" placeholder="2000" /></div>
+      </div>
+      <div class="field">
+        <label for="fx-rate">Today's rate <span class="hint">THB per 1 <span data-fxcode>GBP</span></span></label>
+        <div class="input-money"><input id="fx-rate" type="number" min="0" step="0.1" /><span class="per">฿</span></div>
+      </div>
+      <div class="field">
+        <label for="fx-need">Monthly baht you need <span class="hint">your comfort line</span></label>
+        <div class="input-money"><span class="cur-symbol">฿</span><input id="fx-need" type="number" min="0" step="1000" placeholder="75000" /></div>
+      </div>
+    </form>
+
+    <div class="calc-results" aria-live="polite">
+      <div class="verdict is-good">
+        <p class="verdict-eyebrow">At today's rate</p>
+        <p class="verdict-head" id="fx-today">—</p>
+        <p class="verdict-sub" id="fx-status">—</p>
+      </div>
+      <figure class="chart-wrap">
+        <figcaption>Your monthly baht across a range of exchange rates</figcaption>
+        <div class="table-wrap"><table><thead><tr><th>Rate (฿/unit)</th><th>Monthly ฿</th><th>vs your line</th></tr></thead><tbody id="fx-rows"></tbody></table></div>
+      </figure>
+      <p class="calc-caveat text-muted">Exchange rates move constantly. The lesson isn't the exact number — it's how much a swing changes your income. Build in a margin so a weaker home currency doesn't break your budget.</p>
+    </div>
+  </div>
+</section>
+<style>.fxt{margin-block:var(--space-6);} #fx-rows td{ text-align:right; font-variant-numeric:tabular-nums;} #fx-rows td:first-child{text-align:left;} .fx-ok{color:var(--ok-700);font-weight:700;} .fx-bad{color:var(--danger-700);font-weight:700;}</style>
+<script is:inline>
+(function(){
+  var data=JSON.parse(document.getElementById('rip-fx').textContent);
+  var $=function(id){return document.getElementById(id);};
+  if(!$('fx-form')) return;
+  function curOf(){return data.CURRENCIES.find(function(c){return c.code===$('fx-cur').value;})||data.CURRENCIES[0];}
+  function setRate(force){ if(force||!$('fx-rate').value) $('fx-rate').value=curOf().thbPerUnit; var a=document.querySelector('[data-fxsym]'),b=document.querySelector('[data-fxcode]'); if(a)a.textContent=curOf().symbol; if(b)b.textContent=curOf().code; }
+  function fmt(n){return '฿'+Math.round(n).toLocaleString('en-GB');}
+  function render(){
+    var inc=parseFloat($('fx-inc').value)||0, rate=parseFloat($('fx-rate').value)||curOf().thbPerUnit, need=parseFloat($('fx-need').value)||0;
+    var today=inc*rate;
+    $('fx-today').textContent=fmt(today)+' / month';
+    if(!inc){ $('fx-today').textContent='Enter your income'; $('fx-status').textContent=''; $('fx-rows').innerHTML=''; return; }
+    if(need){ var diff=today-need; $('fx-status').innerHTML=diff>=0?'<span class="fx-ok">'+fmt(diff)+' above</span> your comfort line.':'<span class="fx-bad">'+fmt(-diff)+' below</span> your comfort line at this rate.'; }
+    else { $('fx-status').textContent='Set a comfort line to see your safety margin.'; }
+    var rows=''; for(var pct=-20; pct<=20; pct+=5){ var r=rate*(1+pct/100); var m=inc*r; var cell= need? (m>=need?'<span class="fx-ok">ok</span>':'<span class="fx-bad">short</span>') : '—'; var label=(pct===0?'<strong>':'')+r.toFixed(1)+(pct===0?' (today)</strong>':''); rows+='<tr><td>'+label+'</td><td>'+fmt(m)+'</td><td style="text-align:center">'+cell+'</td></tr>'; }
+    $('fx-rows').innerHTML=rows;
+  }
+  $('fx-cur').addEventListener('change',function(){ setRate(true); render(); });
+  $('fx-form').addEventListener('input',render);
+  setRate(false); render();
+})();
+</script>

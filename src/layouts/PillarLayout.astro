@@ -1,0 +1,65 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { SITE, PILLARS } from '../site.config';
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Disclaimer from '../components/Disclaimer.astro';
+import PillarArt from '../components/PillarArt.astro';
+
+interface Props {
+  entry: CollectionEntry<'pillars'>;
+  guides: CollectionEntry<'guides'>[];
+}
+const { entry, guides } = Astro.props;
+const d = entry.data;
+const pillarMeta = PILLARS.find((p) => p.slug === entry.slug);
+
+const itemListSchema = guides.length ? {
+  '@context': 'https://schema.org', '@type': 'ItemList', name: d.title,
+  itemListElement: guides.map((g, i) => ({ '@type': 'ListItem', position: i + 1, url: new URL(`/${entry.slug}/${g.slug}/`, SITE.url).href, name: g.data.title })),
+} : null;
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
+    { '@type': 'ListItem', position: 2, name: d.title, item: new URL(`/${entry.slug}/`, SITE.url).href },
+  ],
+};
+---
+<BaseLayout title={d.title} description={d.description} image={`/og/pillar-${entry.slug}.png`} schemas={[breadcrumbSchema, ...(itemListSchema ? [itemListSchema] : [])]}>
+  <div class="section">
+    <div class="container">
+      <Breadcrumbs crumbs={[{ label: d.title }]} />
+      <div class="pillar-banner"><PillarArt variant={entry.slug} height={200} /></div>
+      <header class="pillar-head flow">
+        <p class="eyebrow">{pillarMeta?.icon} Pillar guide</p>
+        <h1>{d.title}</h1>
+        <p class="lead">{d.intro}</p>
+      </header>
+
+      <div class="prose flow"><slot /></div>
+
+      <section class="pillar-guides">
+        <h2>Guides in this section</h2>
+        {guides.length === 0 && <p class="text-muted">New guides are being written and verified — check back soon.</p>}
+        <div class="grid grid-2">
+          {guides.map((g) => (
+            <a class="card card-link" href={`/${entry.slug}/${g.slug}/`}>
+              <p class="eyebrow">{g.data.contentType}</p>
+              <h3 class="mt-0">{g.data.title}</h3>
+              <p class="text-muted">{g.data.description}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <div class="mt-8"><Disclaimer topic="general" /></div>
+    </div>
+  </div>
+</BaseLayout>
+<style>
+  .pillar-banner { margin-block: var(--space-4); }
+  .pillar-head { max-width: var(--container-narrow); margin-block: var(--space-5) var(--space-6); }
+  .pillar-guides { margin-top: var(--space-10); }
+</style>

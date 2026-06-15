@@ -1,0 +1,19 @@
+{
+  "name": "retire-in-pattaya",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Retire in Pattaya \u2014 the honest, trustworthy English-language resource for retiring in Pattaya, Thailand.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "audit": "node scripts/audit.mjs"
+  },
+  "dependencies": {
+    "astro": "^4.16.18",
+    "@astrojs/sitemap": "3.2.1",
+    "@astrojs/mdx": "3.1.9"
+  }
+}

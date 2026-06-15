@@ -1,0 +1,74 @@
+---
+import { AREAS, QUESTIONS } from '../data/areas';
+const payload = JSON.stringify({ AREAS, QUESTIONS });
+---
+<section class="matcher" aria-labelledby="am-title">
+  <script type="application/json" id="rip-areas" set:html={payload}></script>
+  <div class="calc-grid">
+    <form id="am-form" class="calc-inputs">
+      <h2 id="am-title" class="calc-h">Tell us what you want</h2>
+      {QUESTIONS.map((qq, qi) => (
+        <fieldset class="field">
+          <legend>{qq.q}</legend>
+          {qq.options.map((o, oi) => (
+            <label class="tier-option">
+              <input type="radio" name={qq.id} value={oi} checked={oi === 0} />
+              <span class="tier-body"><span class="tier-label">{o.label}</span></span>
+            </label>
+          ))}
+        </fieldset>
+      ))}
+    </form>
+
+    <div class="calc-results" aria-live="polite">
+      <div class="verdict is-good">
+        <p class="verdict-eyebrow">Your best-fit area</p>
+        <p class="verdict-head" id="am-top">—</p>
+        <p class="verdict-sub" id="am-desc">Answer the questions to see your match.</p>
+      </div>
+      <div class="watch">
+        <h3 class="mt-0">How the areas rank for you</h3>
+        <div id="am-bars"></div>
+      </div>
+      <a class="btn btn-accent" href="/housing/best-areas-for-retirees-in-pattaya/">Read the full area guide →</a>
+      <p class="calc-caveat text-muted">Orientation, not gospel — visit your shortlist at different times of day before deciding.</p>
+    </div>
+  </div>
+</section>
+<style>
+  .matcher { margin-block: var(--space-6); }
+  .am-bar { margin: var(--space-2) 0; }
+  .am-bar-label { display:flex; justify-content:space-between; font-size: var(--text-sm); margin-bottom:2px; }
+  .am-bar-track { height:10px; background: var(--surface-sunken); border-radius:999px; overflow:hidden; }
+  .am-bar-fill { height:100%; background: var(--brand-500); border-radius:999px; transition: width .25s; }
+  .am-bar.top .am-bar-fill { background: var(--accent-500); }
+  .am-bar.top .am-bar-label { font-weight:700; color: var(--brand-900); }
+</style>
+<script is:inline>
+(function(){
+  var data=JSON.parse(document.getElementById('rip-areas').textContent);
+  var form=document.getElementById('am-form'); if(!form) return;
+  var areaNames=Object.keys(data.AREAS);
+  function compute(){
+    var totals={}; areaNames.forEach(function(a){ totals[a]=0; });
+    data.QUESTIONS.forEach(function(q){
+      var sel=form.querySelector('input[name="'+q.id+'"]:checked'); if(!sel) return;
+      var pts=q.options[parseInt(sel.value,10)].pts;
+      for(var a in pts){ totals[a]=(totals[a]||0)+pts[a]; }
+    });
+    return totals;
+  }
+  function render(){
+    var totals=compute();
+    var ranked=areaNames.map(function(a){return {a:a,s:totals[a]};}).sort(function(x,y){return y.s-x.s;});
+    var max=Math.max(1, ranked[0].s);
+    document.getElementById('am-top').textContent=ranked[0].a;
+    document.getElementById('am-desc').textContent=data.AREAS[ranked[0].a];
+    document.getElementById('am-bars').innerHTML=ranked.map(function(r,i){
+      var pct=Math.round(r.s/max*100);
+      return '<div class="am-bar'+(i===0?' top':'')+'"><div class="am-bar-label"><span>'+r.a+'</span><span>'+r.s+'</span></div><div class="am-bar-track"><div class="am-bar-fill" style="width:'+pct+'%"></div></div></div>';
+    }).join('');
+  }
+  form.addEventListener('change',render); render();
+})();
+</script>

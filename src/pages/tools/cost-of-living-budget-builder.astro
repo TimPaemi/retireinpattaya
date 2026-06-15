@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Disclaimer from '../../components/Disclaimer.astro';
+import BudgetBuilder from '../../components/BudgetBuilder.astro';
+---
+<BaseLayout title="Cost-of-Living Budget Builder for Pattaya" description="Build an honest monthly budget for retiring in Pattaya, line by line, in baht and your home currency. Lean, comfortable and premium presets included.">
+  <section class="section"><div class="container">
+    <div class="container-narrow" style="margin-inline:0;">
+      <Breadcrumbs crumbs={[{ label: 'Tools', href: '/tools/' }, { label: 'Budget builder' }]} />
+      <p class="eyebrow">Free interactive tool</p>
+      <h1>Cost-of-living budget builder</h1>
+      <p class="lead">Start from a preset, then make every line your own. The honest budget is the one you build yourself — especially the costs newcomers forget.</p>
+    </div>
+    <BudgetBuilder />
+    <div class="container-narrow" style="margin-inline:0;"><Disclaimer topic="financial" /></div>
+  </div></section>
+</BaseLayout>

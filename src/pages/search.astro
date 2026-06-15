@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+<BaseLayout title="Search" description="Search every guide, tool and answer on Retire in Pattaya." noindex={true}>
+  <section class="section"><div class="container container-narrow">
+    <Breadcrumbs crumbs={[{ label: 'Search' }]} />
+    <h1>Search</h1>
+    <p class="lead">Find a guide, tool or answer. Results appear as you type.</p>
+    <form class="search-box" role="search" id="search-form" onsubmit="return false;">
+      <label class="visually-hidden" for="q">Search the site</label>
+      <input id="q" type="search" autocomplete="off" placeholder="Try: insurance, 800k baht, loneliness, Jomtien…" autofocus />
+    </form>
+    <p class="search-status text-muted" id="status" aria-live="polite"></p>
+    <ol class="search-results" id="results"></ol>
+  </div></section>
+</BaseLayout>
+
+<style>
+  .search-box input { width:100%; font-size: var(--text-lg); padding: var(--space-4) var(--space-5); border:2px solid var(--line-strong); border-radius: var(--radius-pill); min-height:60px; }
+  .search-box input:focus-within, .search-box input:focus { outline:3px solid var(--brand-600); outline-offset:1px; }
+  .search-status { margin-top: var(--space-3); }
+  .search-results { list-style:none; padding:0; margin: var(--space-4) 0 0; display:grid; gap: var(--space-3); }
+  .search-results a { display:block; text-decoration:none; color:inherit; background:#fff; border:1px solid var(--line); border-left:4px solid var(--brand-500); border-radius: var(--radius); padding: var(--space-4); transition: box-shadow var(--transition), transform var(--transition); }
+  .search-results a:hover { box-shadow: var(--shadow); transform: translateY(-1px); }
+  .search-results .r-type { font-size: var(--text-xs); text-transform:uppercase; letter-spacing:.06em; font-weight:700; color: var(--brand-600); }
+  .search-results .r-title { font-family: var(--font-serif); font-size: var(--text-lg); color: var(--brand-900); margin:2px 0; }
+  .search-results .r-desc { color: var(--ink-500); font-size: var(--text-sm); }
+  mark { background: var(--accent-100); color: var(--accent-700); padding:0 .1em; border-radius:3px; }
+</style>
+
+<script is:inline>
+(function(){
+  var input=document.getElementById('q'), results=document.getElementById('results'), status=document.getElementById('status');
+  var DATA=[], ready=false;
+  fetch('/search-index.json').then(function(r){return r.json();}).then(function(j){ DATA=j; ready=true; var p=new URLSearchParams(location.search).get('q'); if(p){ input.value=p; run(p);} }).catch(function(){ status.textContent='Search is unavailable right now.'; });
+  function esc(s){ return s.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
+  function hl(text,terms){ var out=esc(text); terms.forEach(function(t){ if(t.length<2) return; out=out.replace(new RegExp('('+t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig'),'<mark>$1</mark>'); }); return out; }
+  function score(item,terms){ var hay=(item.t+' '+item.d+' '+item.k+' '+item.g).toLowerCase(); var s=0; for(var i=0;i<terms.length;i++){ var t=terms[i]; if(!t)continue; if(item.t.toLowerCase().indexOf(t)>=0)s+=5; if(item.k.toLowerCase().indexOf(t)>=0)s+=2; if(hay.indexOf(t)>=0)s+=1; else return -1; } return s; }
+  function run(q){
+    if(!ready){ status.textContent='Loading…'; return; }
+    var terms=q.toLowerCase().split(/\s+/).filter(Boolean);
+    if(!terms.length){ results.innerHTML=''; status.textContent='Type to search '+DATA.length+' guides, tools and pages.'; return; }
+    var scored=DATA.map(function(it){return {it:it,s:score(it,terms)};}).filter(function(x){return x.s>0;}).sort(function(a,b){return b.s-a.s;});
+    status.textContent=scored.length+' result'+(scored.length===1?'':'s')+' for "'+q+'"';
+    results.innerHTML=scored.slice(0,40).map(function(x){ var it=x.it; return '<li><a href="'+it.u+'"><span class="r-type">'+it.type+(it.k&&it.k!==it.type?' · '+esc(it.k):'')+'</span><div class="r-title">'+hl(it.t,terms)+'</div><div class="r-desc">'+hl(it.d,terms)+'</div></a></li>'; }).join('');
+    if(!scored.length) results.innerHTML='<li class="text-muted">No matches. Try a broader term like "insurance", "visa" or "budget".</li>';
+  }
+  var tmr; input.addEventListener('input',function(){ clearTimeout(tmr); var q=input.value; tmr=setTimeout(function(){ run(q); try{history.replaceState(null,'','/search/'+(q?('?q='+encodeURIComponent(q)):''));}catch(e){} },120); });
+})();
+</script>

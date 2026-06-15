@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { GLOSSARY } from '../data/glossary';
+import { SITE } from '../site.config';
+
+const categories = [...new Set(GLOSSARY.map((t) => t.category))];
+const schema = {
+  '@context': 'https://schema.org', '@type': 'DefinedTermSet', name: 'Retire in Pattaya Glossary',
+  hasDefinedTerm: GLOSSARY.map((t) => ({ '@type': 'DefinedTerm', name: t.term, description: t.definition })),
+};
+---
+<BaseLayout title="Glossary of Retirement & Visa Terms" description="Plain-English definitions of the visa, money, healthcare and housing terms you'll meet when planning a retirement in Pattaya." schemas={[schema]}>
+  <section class="section"><div class="container container-narrow">
+    <Breadcrumbs crumbs={[{ label: 'Glossary' }]} />
+    <h1>Glossary</h1>
+    <p class="lead">The jargon, decoded. If a term here involves a figure that changes, we point you to verify it.</p>
+    {categories.map((cat) => (
+      <section class="gloss-cat">
+        <h2>{cat}</h2>
+        <dl>
+          {GLOSSARY.filter((t) => t.category === cat).map((t) => (
+            <div class="gloss-term" id={t.slug}>
+              <dt>{t.term}</dt>
+              <dd>{t.definition} {t.whyItMatters && <span class="why"><strong>Why it matters:</strong> {t.whyItMatters}</span>}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    ))}
+  </div></section>
+</BaseLayout>
+<style>
+  .gloss-cat { margin-top: var(--space-6); }
+  .gloss-term { padding: var(--space-4) 0; border-bottom: 1px solid var(--line); scroll-margin-top: 6rem; }
+  .gloss-term dt { font-weight: 700; font-size: var(--text-lg); color: var(--brand-900); font-family: var(--font-serif); }
+  .gloss-term dd { margin: var(--space-2) 0 0; }
+  .why { display: block; margin-top: var(--space-2); font-size: var(--text-sm); color: var(--ink-500); }
+</style>

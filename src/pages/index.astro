@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { SITE, PILLARS, TOOLS } from '../site.config';
+import PillarArt from '../components/PillarArt.astro';
+const orderedPillars = [...PILLARS].sort((a, b) => a.priority - b.priority);
+const liveTool = TOOLS.find((t) => t.status === 'live');
+const featured = (await getCollection('guides', ({ data }) => data.featured && !data.draft)).slice(0, 4);
+const pillarOf = (slug) => PILLARS.find((p) => p.slug === slug);
+---
+<BaseLayout
+  title="Honest Guidance on Retiring in Pattaya"
+  description={SITE.description}
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">Calm, candid, carefully sourced</p>
+      <h1>Retiring in Pattaya, told the whole way through.</h1>
+      <p class="lead hero-lead">
+        The sunshine and the downsides. The visas, the healthcare, the money — and the
+        honest reality checks. We help you make one of life's biggest decisions with clear eyes,
+        not a sales pitch.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="/start-here/">Start here</a>
+        <a class="btn btn-ghost btn-lg" href="/tools/can-i-afford-to-retire-in-pattaya/">Can I afford it? →</a>
+      </div>
+      <div class="hero-art"><PillarArt variant="home" height={240} /></div>
+      <p class="hero-trust trust-badge">
+        🔎 Sourced &amp; dated · ⚖️ Information, not a sales pitch · 🛡️ We protect readers from scams
+      </p>
+    </div>
+  </section>
+
+  <!-- THE HONEST DIFFERENCE -->
+  <section class="section section-sand">
+    <div class="container">
+      <h2 class="visually-hidden">Why Retire in Pattaya is different</h2>
+      <div class="grid grid-3">
+        <div class="promise">
+          <span class="promise-icon" aria-hidden="true">📖</span>
+          <h3>The whole truth</h3>
+          <p class="text-muted">We cover healthcare costs as you age, isolation, scams and what happens if money runs out abroad — not just the beaches.</p>
+        </div>
+        <div class="promise">
+          <span class="promise-icon" aria-hidden="true">🔎</span>
+          <h3>Sourced &amp; dated</h3>
+          <p class="text-muted">Visa, tax, insurance and legal figures are linked to official sources and carry a visible "last reviewed" date. Rules change — we say so.</p>
+        </div>
+        <div class="promise">
+          <span class="promise-icon" aria-hidden="true">🛡️</span>
+          <h3>On your side</h3>
+          <p class="text-muted">Retirees are targeted by scams. Part of our job is to protect you. We'll never host predatory advertisers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center">Everything you need, in plain English</h2>
+      <p class="lead text-center" style="max-width:46rem;margin-inline:auto;">Ten honest guides, written for people weighing a real move — not browsing a holiday.</p>
+      <div class="grid grid-3 mt-8">
+        {orderedPillars.map((p) => (
+          <a class="card card-link" href={`/${p.slug}/`}>
+            <span class="pillar-icon" aria-hidden="true">{p.icon}</span>
+            <h3 class="mt-0">{p.title}</h3>
+            <p class="text-muted">{p.summary}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FLAGSHIP TOOL -->
+  {liveTool && (
+    <section class="section section-soft">
+      <div class="container tool-teaser">
+        <div>
+          <p class="eyebrow">Free interactive tool</p>
+          <h2 class="mt-0">{liveTool.title}</h2>
+          <p class="lead">{liveTool.summary} It runs entirely in your browser — we never see your numbers.</p>
+          <a class="btn btn-accent btn-lg" href={`/tools/${liveTool.slug}/`}>Try the calculator</a>
+        </div>
+        <div class="tool-card card">
+          <p class="trust-badge">🔒 Private · runs on your device</p>
+          <p class="tool-stat"><strong>3 minutes</strong><span class="text-muted"> to a realistic answer</span></p>
+          <p class="text-muted">Income + savings + the lifestyle you want → your monthly surplus or shortfall, and roughly how long your savings would last.</p>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- FEATURED GUIDES -->
+  {featured.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <h2 class="text-center">Most useful to start with</h2>
+        <p class="lead text-center" style="max-width:42rem;margin-inline:auto;">The guides readers turn to first when weighing the move.</p>
+        <div class="grid grid-2 mt-8">
+          {featured.map((g) => (
+            <a class="card card-link" href={`/${g.data.pillar}/${g.slug}/`}>
+              <p class="eyebrow">{pillarOf(g.data.pillar)?.icon} {pillarOf(g.data.pillar)?.title}</p>
+              <h3 class="mt-0">{g.data.title}</h3>
+              <p class="text-muted">{g.data.description}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- HONEST "IS THIS YOU?" -->
+  <section class="section">
+    <div class="container container-narrow">
+      <h2 class="text-center">Is Pattaya right for you?</h2>
+      <div class="grid grid-2 mt-6">
+        <div class="card honest-col">
+          <h3 class="mt-0">It can be wonderful if…</h3>
+          <ul>
+            <li>You want warmth, value and good healthcare within reach</li>
+            <li>You'll build a community, not just a budget</li>
+            <li>You go in clear-eyed about insurance and admin</li>
+          </ul>
+        </div>
+        <div class="card honest-col">
+          <h3 class="mt-0">Think hard if…</h3>
+          <ul>
+            <li>Affordable health insurance later in life is essential and uncertain for you</li>
+            <li>You'd be isolated far from family and support</li>
+            <li>You're banking on rules and exchange rates never changing</li>
+          </ul>
+        </div>
+      </div>
+      <p class="text-center mt-6"><a class="btn btn-ghost" href="/reality-checks/">Read the honest reality checks →</a></p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { background:
+      radial-gradient(120% 100% at 80% -10%, var(--brand-050), transparent 60%),
+      linear-gradient(180deg, var(--sand-050), var(--surface)); padding-block: var(--space-12) var(--space-10); border-bottom: 1px solid var(--line); }
+  .hero-inner { max-width: 52rem; }
+  .hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin-top: var(--space-2); }
+  .hero-lead { margin-top: var(--space-4); max-width: 42rem; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
+  .hero-trust { margin-top: var(--space-6); }
+  .hero-art { margin-top: var(--space-8); }
+  .promise-icon, .pillar-icon { font-size: 2rem; display: block; margin-bottom: var(--space-2); }
+  .promise h3 { margin-top: 0; }
+  .tool-teaser { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--space-8); align-items: center; }
+  .tool-stat { font-size: var(--text-xl); margin-top: var(--space-3); }
+  .honest-col ul { padding-left: var(--space-5); }
+  .honest-col li + li { margin-top: var(--space-2); }
+  @media (max-width: 760px) { .tool-teaser { grid-template-columns: 1fr; } }
+</style>

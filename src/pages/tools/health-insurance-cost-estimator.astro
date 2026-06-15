@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Disclaimer from '../../components/Disclaimer.astro';
+import InsuranceEstimator from '../../components/InsuranceEstimator.astro';
+import { SITE } from '../../site.config';
+
+const faq = [
+  { q: 'How much does expat health insurance cost in Thailand?', a: 'It depends overwhelmingly on your age, the level of cover, and your health history. This tool shows rough benchmark ranges by age band and cover level; a real quote is the only way to know your premium. Premiums rise steeply with age.' },
+  { q: 'Can I get health insurance in Thailand with a pre-existing condition?', a: 'Often yes, but the condition may be excluded, your premium loaded, or — for some conditions or ages — cover declined. Always declare everything honestly, because non-disclosure can void a claim when you need it most.' },
+  { q: 'Is there an age limit for expat health insurance?', a: 'Many insurers stop offering NEW policies past a certain age, though they may renew existing ones. This is a strong reason to secure cover earlier rather than later.' },
+];
+const schemas = [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }];
+---
+<BaseLayout title="Health Insurance Cost Estimator for Pattaya" description="Estimate expat health-insurance premiums by age and cover level, in baht and your home currency — plus the traps to watch for. Free and private." schemas={schemas}>
+  <section class="section"><div class="container">
+    <div class="container-narrow" style="margin-inline:0;">
+      <Breadcrumbs crumbs={[{ label: 'Tools', href: '/tools/' }, { label: 'Health insurance estimator' }]} />
+      <p class="eyebrow">Free interactive tool</p>
+      <h1>Health insurance cost estimator</h1>
+      <p class="lead">Insurance is the cost that quietly decides whether retiring abroad works long-term. Get a realistic range for your age and cover level — then a real quote.</p>
+    </div>
+    <InsuranceEstimator />
+    <div class="container-narrow" style="margin-inline:0;">
+      <Disclaimer topic="medical" />
+      <div class="prose flow mt-8">
+        <h2>Common questions</h2>
+        {faq.map((f) => (<details class="faq-item"><summary>{f.q}</summary><p>{f.a}</p></details>))}
+      </div>
+    </div>
+  </div></section>
+</BaseLayout>
+<style>.faq-item{border:1px solid var(--line);border-radius:var(--radius);padding:var(--space-3) var(--space-4);margin-bottom:var(--space-3);background:#fff}.faq-item summary{font-weight:700;cursor:pointer;color:var(--brand-900)}.faq-item p{margin-top:var(--space-3)}</style>

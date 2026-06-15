@@ -1,0 +1,24 @@
+<div class="read-progress" aria-hidden="true"><span id="read-bar"></span></div>
+<button id="to-top" class="to-top" aria-label="Back to top" hidden>↑</button>
+<style>
+  .read-progress { position: fixed; top: 0; left: 0; right: 0; height: 4px; background: transparent; z-index: var(--z-header); }
+  #read-bar { display:block; height:100%; width:0; background: var(--accent-500); transition: width .1s linear; }
+  .to-top { position: fixed; right: 18px; bottom: 18px; width: 48px; height: 48px; border-radius: 50%;
+    background: var(--brand-800); color:#fff; border:0; font-size: 1.3rem; cursor:pointer; box-shadow: var(--shadow-lg); z-index: var(--z-header); }
+  .to-top:hover { background: var(--brand-900); }
+  @media print { .read-progress, .to-top { display:none !important; } }
+</style>
+<script is:inline>
+(function(){
+  var bar=document.getElementById('read-bar'), btn=document.getElementById('to-top');
+  function onScroll(){
+    var h=document.documentElement; var max=h.scrollHeight-h.clientHeight;
+    var p=max>0?(h.scrollTop/max)*100:0;
+    if(bar) bar.style.width=p+'%';
+    if(btn) btn.hidden = h.scrollTop < 600;
+  }
+  document.addEventListener('scroll', onScroll, {passive:true});
+  if(btn) btn.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  onScroll();
+})();
+</script>

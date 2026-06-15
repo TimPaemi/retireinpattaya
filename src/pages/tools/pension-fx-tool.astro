@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Disclaimer from '../../components/Disclaimer.astro';
+import FxTool from '../../components/FxTool.astro';
+---
+<BaseLayout title="Pension & Exchange-Rate Tool for Thailand" description="See how exchange-rate swings change your monthly baht income — and whether you'd still clear your comfort line if your home currency weakened.">
+  <section class="section"><div class="container">
+    <div class="container-narrow" style="margin-inline:0;">
+      <Breadcrumbs crumbs={[{ label: 'Tools', href: '/tools/' }, { label: 'Pension & FX tool' }]} />
+      <p class="eyebrow">Free interactive tool</p>
+      <h1>Pension &amp; exchange-rate tool</h1>
+      <p class="lead">Your pension is paid in one currency and spent in baht. This shows how much a rate swing really moves your monthly income — so you can build in a safety margin.</p>
+    </div>
+    <FxTool />
+    <div class="container-narrow" style="margin-inline:0;"><Disclaimer topic="financial" /></div>
+  </div></section>
+</BaseLayout>

@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+<BaseLayout title="Editorial Standards" description="How we research, write, source and review our guidance — and how to flag anything that's wrong or out of date.">
+  <section class="section"><div class="container container-narrow prose flow">
+    <Breadcrumbs crumbs={[{ label: 'Editorial Standards' }]} />
+    <h1>Editorial Standards</h1>
+    <p class="lead">This is a money, health and legal (YMYL) resource. We hold it to a high bar, and we're transparent about how.</p>
+
+    <h2>Sourcing</h2>
+    <p>Factual claims about visas, tax, insurance, healthcare and law are linked to primary or official sources wherever possible — government bodies, official portals, and reputable institutions. We prefer the original source over someone else's summary of it.</p>
+
+    <h2>Dating &amp; "last reviewed"</h2>
+    <p>Rules and figures in this field change constantly. Every guide shows a visible <strong>last reviewed</strong> date. We never present a visa amount, tax rule or insurance figure as permanent — if a number could be out of date, we mark it for verification rather than guess.</p>
+
+    <h2>Review</h2>
+    <p>Sensitive pages — healthcare, money, legal and end-of-life — are written to be checked by a qualified person in the relevant field as our roster of expert reviewers grows. Where a page has been reviewed, we name the reviewer.</p>
+
+    <h2>Independence</h2>
+    <p>Commercial relationships never decide our recommendations or our verdicts. We disclose how we earn (see <a href="/about/">About</a>), and we keep editorial judgement separate from revenue.</p>
+
+    <h2>Corrections</h2>
+    <p>We will get things wrong sometimes, and rules will move under our feet. If you spot an error or something out of date, please <a href="/contact/">tell us</a> — we correct promptly and update the review date.</p>
+
+    <h2>AI assistance, human responsibility</h2>
+    <p>We use AI tools to help draft and organise content efficiently. But every factual figure is human-verified against a source before publication, and a human is accountable for what goes live. AI never invents the numbers.</p>
+  </div></section>
+</BaseLayout>

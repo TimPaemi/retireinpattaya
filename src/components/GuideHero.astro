@@ -1,0 +1,43 @@
+---
+/* Deterministic generative coastal hero — varies per guide so each looks distinct,
+   while staying within the pillar's calm palette. Abstract, dignified, no clichés. */
+interface Props { pillar: string; slug: string; height?: number; }
+const { pillar, slug, height = 200 } = Astro.props;
+
+const palettes: Record<string, string> = {
+  healthcare: '#f0b429', visas: '#e8893b', money: '#3aa17e', 'cost-of-living': '#e0a92e',
+  housing: '#5a93c2', 'daily-life': '#e87a5d', 'safety-scams': '#4d8fa6',
+  'getting-settled': '#7aa23f', 'legal-end-of-life': '#b08bbf', 'reality-checks': '#d98a3a',
+};
+const sun = palettes[pillar] ?? '#f0b429';
+
+// hash the slug → stable pseudo-random parameters
+let h = 0;
+for (let i = 0; i < slug.length; i++) h = (h * 31 + slug.charCodeAt(i)) % 100000;
+const sunX = 820 + (h % 260);          // 820–1080
+const sunY = 90 + ((h >> 3) % 70);     // 90–160
+const amp1 = 10 + (h % 12);
+const amp2 = 12 + ((h >> 2) % 14);
+const phase = (h % 6) * 30;
+const uid = `gh-${slug}`;
+const wave = (y: number, a: number, p: number) =>
+  `M0 ${y} Q 200 ${y - a} 400 ${y} T 800 ${y} T 1200 ${y - (p % 2 ? a : 0)} V360 H0 Z`;
+---
+<svg class="guide-hero" viewBox="0 0 1200 340" style={`height:${height}px`} role="img" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id={`${uid}-s`} x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eef6f8" /><stop offset="1" stop-color="#ffffff" />
+    </linearGradient>
+    <radialGradient id={`${uid}-sun`} cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color={sun} stop-opacity="0.95" /><stop offset="1" stop-color={sun} stop-opacity="0.6" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="340" fill={`url(#${uid}-s)`} />
+  <circle cx={sunX} cy={sunY} r="92" fill={sun} opacity="0.10" />
+  <circle cx={sunX} cy={sunY} r="56" fill={`url(#${uid}-sun)`} />
+  <path d={wave(238, 16, phase)} fill="#1b7f8c" opacity="0.16" />
+  <path d={wave(272, amp1, phase + 1)} fill="#2a9d8f" opacity="0.22" />
+  <path d={wave(300, amp2, phase)} fill="#1b7f8c" opacity="0.30" />
+  <path d={wave(326, amp1 + 4, phase + 1)} fill="#0e4d64" opacity="0.42" />
+</svg>
+<style>.guide-hero { display:block; width:100%; border-radius: var(--radius-lg); border:1px solid var(--line); }</style>

@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+<BaseLayout title="Start Here" description="New to the idea of retiring in Pattaya? Start with these five steps — in the order that actually matters.">
+  <section class="section"><div class="container container-narrow prose flow">
+    <Breadcrumbs crumbs={[{ label: 'Start Here' }]} />
+    <h1>Start Here</h1>
+    <p class="lead">If you're just beginning to wonder "could we actually do this?", read these in order. It's the sequence that saves people the most heartache.</p>
+
+    <h2>1. Be honest about whether it suits you</h2>
+    <p>Before the fun stuff, do the reality check. Some people thrive here; some really shouldn't come. Better to learn that from your armchair.
+      <br /><a href="/reality-checks/">→ Honest reality checks</a></p>
+
+    <h2>2. Pressure-test the money</h2>
+    <p>Can your pension and savings actually carry the life you want? Our free calculator gives you a realistic shape in a few minutes.
+      <br /><a href="/tools/can-i-afford-to-retire-in-pattaya/">→ Can I afford to retire in Pattaya?</a></p>
+
+    <h2>3. Understand healthcare and insurance early</h2>
+    <p>This is the part that quietly decides whether retiring abroad works long-term — especially as you age. Don't leave it till last.
+      <br /><a href="/healthcare/">→ Healthcare &amp; insurance</a></p>
+
+    <h2>4. Get the visa picture straight</h2>
+    <p>There's a legal path for most retirees. Learn the routes and the trade-offs before anyone tries to sell you a shortcut.
+      <br /><a href="/visas/">→ Visas &amp; immigration</a></p>
+
+    <h2>5. Protect yourself from day one</h2>
+    <p>Retirees are targeted by scams. A little awareness now protects your money and your peace of mind.
+      <br /><a href="/safety-scams/">→ Safety &amp; scams</a></p>
+  </div></section>
+</BaseLayout>

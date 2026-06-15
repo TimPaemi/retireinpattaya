@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Disclaimer from '../components/Disclaimer.astro';
+import DestinationCompare from '../components/DestinationCompare.astro';
+---
+<BaseLayout title="Compare Pattaya vs Other Retirement Destinations" description="Sort and filter a comparison of Pattaya against other Thai cities and countries — cost, healthcare, visas, climate, community and honest downsides.">
+  <section class="section"><div class="container">
+    <div class="container-narrow" style="margin-inline:0;">
+      <Breadcrumbs crumbs={[{ label: 'Tools', href: '/tools/' }, { label: 'Compare destinations' }]} />
+      <p class="eyebrow">Free interactive tool</p>
+      <h1>Compare retirement destinations</h1>
+      <p class="lead">Sort by what matters to you, filter to Thailand or other countries, and see the honest downside of each. Orientation, not gospel — then dig into the guides.</p>
+    </div>
+    <DestinationCompare />
+    <div class="container-narrow" style="margin-inline:0;"><Disclaimer topic="general" /></div>
+  </div></section>
+</BaseLayout>

@@ -1,0 +1,135 @@
+---
+import { getEntry, getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { SITE, PILLARS } from '../site.config';
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import LastReviewed from '../components/LastReviewed.astro';
+import SourceList from '../components/SourceList.astro';
+import Disclaimer from '../components/Disclaimer.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import AuthorCard from '../components/AuthorCard.astro';
+import RelatedGuides from '../components/RelatedGuides.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+import InsuranceLead from '../components/InsuranceLead.astro';
+import KeyFacts from '../components/KeyFacts.astro';
+import KeyTakeaways from '../components/KeyTakeaways.astro';
+import GuideHero from '../components/GuideHero.astro';
+import GlossaryTooltips from '../components/GlossaryTooltips.astro';
+import ArticleEnhance from '../components/ArticleEnhance.astro';
+
+interface Heading { depth: number; slug: string; text: string; }
+interface Props { entry: CollectionEntry<'guides'>; headings?: Heading[]; }
+const { entry, headings = [] } = Astro.props;
+const d = entry.data;
+const pillar = PILLARS.find((p) => p.slug === d.pillar);
+
+const author = await getEntry(d.author);
+const reviewer = d.reviewer ? await getEntry(d.reviewer) : undefined;
+
+// Reading time from the raw markdown body
+const words = entry.body.split(/\s+/).filter(Boolean).length;
+const readingMinutes = Math.max(1, Math.round(words / 200));
+
+// Related guides: explicit `related` slugs first, else same-pillar siblings
+const all = await getCollection('guides', ({ data }) => (import.meta.env.PROD ? !data.draft : true));
+const explicit = all.filter((g) => d.related.includes(g.slug) && g.slug !== entry.slug);
+const siblings = all.filter((g) => g.data.pillar === d.pillar && g.slug !== entry.slug && !d.related.includes(g.slug));
+const related = [...explicit, ...siblings].slice(0, 4).map((g) => ({ slug: g.slug, pillar: g.data.pillar, title: g.data.title, description: g.data.description }));
+
+const url = new URL(`/${d.pillar}/${entry.slug}/`, SITE.url).href;
+const showInsurance = d.pillar === 'healthcare' || d.pillar === 'money';
+const disclaimerTopic =
+  d.pillar === 'money' ? 'financial'
+  : d.pillar === 'healthcare' ? 'medical'
+  : d.pillar === 'visas' ? 'visa'
+  : d.pillar === 'legal-end-of-life' ? 'legal'
+  : 'general';
+
+const articleSchema: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': d.ymyl && d.pillar === 'healthcare' ? 'MedicalWebPage' : 'Article',
+  headline: d.title,
+  description: d.description,
+  datePublished: d.publishDate.toISOString(),
+  dateModified: (d.updated ?? d.lastReviewed).toISOString(),
+  author: { '@type': 'Person', name: author.data.name, jobTitle: author.data.role },
+  publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+  mainEntityOfPage: url,
+  ...(reviewer ? { reviewedBy: { '@type': 'Person', name: reviewer.data.name } } : {}),
+  lastReviewed: d.lastReviewed.toISOString().slice(0, 10),
+  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.lead'] },
+};
+const breadcrumbSchema = {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
+    { '@type': 'ListItem', position: 2, name: pillar?.title ?? d.pillar, item: new URL(`/${d.pillar}/`, SITE.url).href },
+    { '@type': 'ListItem', position: 3, name: d.title, item: url },
+  ],
+};
+const howToSchema = d.steps.length ? {
+  '@context': 'https://schema.org', '@type': 'HowTo', name: d.title, description: d.description,
+  step: d.steps.map((st, i) => ({ '@type': 'HowToStep', position: i + 1, name: st.name, text: st.text })),
+} : null;
+const faqSchema = d.faq.length ? {
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: d.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+} : null;
+const schemas = [articleSchema, breadcrumbSchema, ...(howToSchema ? [howToSchema] : []), ...(faqSchema ? [faqSchema] : [])];
+---
+<BaseLayout title={d.title} description={d.description} type="article" image={d.heroImage ?? `/og/${entry.slug}.png`} schemas={schemas}>
+  <div class="section"><div class="container">
+    <Breadcrumbs crumbs={[{ label: pillar?.title ?? d.pillar, href: `/${d.pillar}/` }, { label: d.title }]} />
+
+    <div class="article-grid">
+      <article>
+        <header class="article-head flow">
+          <p class="eyebrow">{pillar?.icon} {pillar?.title} · {readingMinutes} min read</p>
+          <h1>{d.title}</h1>
+          <p class="lead">{d.description}</p>
+          <LastReviewed
+            lastReviewed={d.lastReviewed}
+            updated={d.updated}
+            author={{ name: author.data.name, role: author.data.role }}
+            reviewer={reviewer ? { name: reviewer.data.name, role: reviewer.data.role } : undefined}
+            verifyPending={d.verifyPending}
+          />
+        <button type="button" class="btn btn-ghost print-btn" onclick="window.print()">Print / Save as PDF</button>
+        </header>
+
+        <div class="guide-hero-wrap"><GuideHero pillar={d.pillar} slug={entry.slug} height={190} /></div>
+        <KeyTakeaways items={d.takeaways} />
+        <KeyFacts facts={d.keyFacts} />
+
+        <div class="prose flow"><slot /></div>
+
+        {showInsurance && <InsuranceLead />}
+        <Disclaimer topic={disclaimerTopic} />
+        <SourceList sources={d.sources} />
+        <AuthorCard name={author.data.name} role={author.data.role} shortBio={author.data.shortBio} slug={author.slug} credentials={author.data.credentials} />
+        <RelatedGuides guides={related} />
+        <NewsletterSignup />
+      </article>
+      <GlossaryTooltips />
+      <ArticleEnhance />
+
+      <aside class="article-aside">
+        <div class="aside-sticky">
+          <TableOfContents headings={headings} />
+        </div>
+      </aside>
+    </div>
+  </div></div>
+</BaseLayout>
+
+<style>
+  .article-grid { display: grid; grid-template-columns: minmax(0, 1fr) 16rem; gap: var(--space-8); align-items: start; margin-top: var(--space-5); }
+  article { min-width: 0; }
+  .article-head { margin-bottom: var(--space-5); }
+  .guide-hero-wrap { margin-bottom: var(--space-5); }
+  .print-btn { margin-top: var(--space-3); font-size: var(--text-sm); padding: var(--space-2) var(--space-4); min-height:40px; }
+  @media print { .print-btn { display:none; } }
+  .aside-sticky { position: sticky; top: 96px; }
+  @media (max-width: 980px) { .article-grid { grid-template-columns: 1fr; } .article-aside { display: none; } }
+</style>

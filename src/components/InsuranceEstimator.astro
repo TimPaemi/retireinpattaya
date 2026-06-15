@@ -1,0 +1,118 @@
+---
+import { COVERAGE_LEVELS, INSURANCE_AGE_BANDS, INSURANCE_META } from '../data/insurance';
+import { CURRENCIES } from '../data/benchmarks';
+import { FORMS } from '../site.config';
+const payload = JSON.stringify({ COVERAGE_LEVELS, INSURANCE_AGE_BANDS, CURRENCIES });
+const leadLive = Boolean(FORMS.insuranceLeadAction);
+---
+<section class="estimator" aria-labelledby="est-title">
+  <script type="application/json" id="rip-insurance" set:html={payload}></script>
+  <div class="calc-grid">
+    <form class="calc-inputs" id="est-form">
+      <h2 id="est-title" class="calc-h">Your details</h2>
+
+      <div class="field">
+        <label for="e-age">Your age band</label>
+        <select id="e-age">{INSURANCE_AGE_BANDS.map((a, i) => <option value={a.id} selected={i === 1}>{a.label}</option>)}</select>
+        <p class="age-note" data-ewarn></p>
+      </div>
+
+      <fieldset class="field">
+        <legend>Level of cover</legend>
+        {COVERAGE_LEVELS.map((c, i) => (
+          <label class="tier-option">
+            <input type="radio" name="cover" value={c.id} checked={i === 1} />
+            <span class="tier-body"><span class="tier-label">{c.label}</span><span class="tier-blurb">{c.blurb}</span></span>
+          </label>
+        ))}
+      </fieldset>
+
+      <div class="field">
+        <label><input type="checkbox" id="e-preex" /> I have a pre-existing condition</label>
+        <p class="hint">This often raises premiums, adds exclusions, or affects eligibility.</p>
+      </div>
+
+      <div class="field">
+        <label for="e-cur">Show me also in</label>
+        <select id="e-cur">{CURRENCIES.filter((c) => c.code !== 'THB').map((c) => <option value={c.code}>{c.code} ({c.symbol})</option>)}</select>
+      </div>
+      <div class="field">
+        <label for="e-fx">Exchange rate <span class="hint">THB per 1 <span data-ecur>GBP</span></span></label>
+        <div class="input-money"><input id="e-fx" type="number" min="0" step="0.1" /><span class="per">฿</span></div>
+      </div>
+    </form>
+
+    <div class="calc-results" aria-live="polite">
+      <div class="verdict is-tight">
+        <p class="verdict-eyebrow">Estimated monthly premium</p>
+        <p class="verdict-head" id="e-range">—</p>
+        <p class="verdict-sub" id="e-range-home">—</p>
+      </div>
+      <div class="savings-box"><p id="e-preex-note" class="text-muted"></p></div>
+
+      <div class="watch">
+        <h3 class="mt-0">What to watch for</h3>
+        <ul>
+          <li><strong>Age caps:</strong> some insurers won't start new cover past a certain age. Lock cover in sooner rather than later.</li>
+          <li><strong>Pre-existing conditions</strong> are frequently excluded or loaded — declare everything honestly.</li>
+          <li><strong>Renewal increases:</strong> a cheap premium today can climb steeply with age. Ask about the insurer's track record.</li>
+          <li><strong>Inpatient vs outpatient:</strong> cheaper plans may exclude day-to-day visits.</li>
+        </ul>
+      </div>
+
+      <div class="ins-quote">
+        <h3 class="mt-0">Get your real number</h3>
+        <p class="text-muted">These are rough benchmark ranges (last reviewed {INSURANCE_META.lastReviewed}). The only way to know your premium is a quote based on your health and history.</p>
+        {leadLive ? (
+          <form class="newsletter-form" action={FORMS.insuranceLeadAction} method="post">
+            <input type="email" name="email" required placeholder="Email for your quote" />
+            <button class="btn btn-accent" type="submit">Get quotes →</button>
+          </form>
+        ) : (
+          <a class="btn btn-accent btn-lg" href="/healthcare/">Read the insurance guide →</a>
+        )}
+        <p class="ins-disc text-muted">We may earn a commission, at no cost to you. Reputable insurers only.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .estimator { margin-block: var(--space-6); }
+  .watch, .ins-quote { background:#fff; border:1px solid var(--line); border-radius: var(--radius); padding: var(--space-4); margin-top: var(--space-4); }
+  .watch ul { padding-left: var(--space-5); } .watch li + li { margin-top: var(--space-2); }
+  .ins-quote .newsletter-form { display:flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-3); }
+  .ins-quote input { flex:1 1 14rem; padding: var(--space-3) var(--space-4); border:2px solid var(--line-strong); border-radius: var(--radius-sm); min-height:48px; }
+</style>
+
+<script is:inline>
+(function () {
+  var data = JSON.parse(document.getElementById('rip-insurance').textContent);
+  var $ = function (id) { return document.getElementById(id); };
+  if (!$('est-form')) return;
+  var curOf = function () { return data.CURRENCIES.find(function (c) { return c.code === $('e-cur').value; }) || data.CURRENCIES[0]; };
+  function fmtTHB(n) { return '฿' + Math.round(n).toLocaleString('en-GB'); }
+  function setFx(force) { if (force || !$('e-fx').value) $('e-fx').value = curOf().thbPerUnit; var s=document.querySelector('[data-ecur]'); if(s) s.textContent = curOf().code; }
+  function render() {
+    var ageId = $('e-age').value;
+    var cover = data.COVERAGE_LEVELS.find(function (c) { return c.id === (document.querySelector('input[name=cover]:checked')||{}).value; }) || data.COVERAGE_LEVELS[1];
+    var band = data.INSURANCE_AGE_BANDS.find(function (a) { return a.id === ageId; });
+    var r = cover.ranges[ageId];
+    var preex = $('e-preex').checked;
+    var lo = r[0], hi = r[1];
+    if (preex) { hi = Math.round(hi * 1.4); }
+    $('e-range').textContent = fmtTHB(lo) + ' – ' + fmtTHB(hi) + ' /mo';
+    var fx = parseFloat($('e-fx').value) || curOf().thbPerUnit;
+    var c = curOf();
+    $('e-range-home').textContent = '≈ ' + c.symbol + Math.round(lo/fx).toLocaleString('en-GB') + ' – ' + c.symbol + Math.round(hi/fx).toLocaleString('en-GB') + ' per month';
+    document.querySelector('[data-ewarn]').textContent = band && band.warn ? '⚠ ' + band.warn : '';
+    $('e-preex-note').textContent = preex
+      ? 'With a pre-existing condition, expect the higher end — or exclusions for that condition. Always declare it; non-disclosure can void a claim.'
+      : '';
+  }
+  $('e-cur').addEventListener('change', function(){ setFx(true); render(); });
+  $('est-form').addEventListener('input', render);
+  $('est-form').addEventListener('change', render);
+  setFx(false); render();
+})();
+</script>

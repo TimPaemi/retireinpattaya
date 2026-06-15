@@ -1,0 +1,56 @@
+---
+import { SITE, PILLARS, FOOTER_LEGAL_LINKS, GLOBAL_DISCLAIMER } from '../site.config';
+const year = new Date().getFullYear();
+const topPillars = [...PILLARS].sort((a, b) => a.priority - b.priority).slice(0, 6);
+const explore = [
+  { label: 'Start Here', href: '/start-here/' },
+  { label: 'Free Tools', href: '/tools/' },
+  { label: 'Free Guides', href: '/resources/' },
+  { label: 'Compare Destinations', href: '/compare/' },
+  { label: 'FAQ', href: '/faq/' },
+  { label: 'Glossary', href: '/glossary/' },
+  { label: 'Our Authors', href: '/authors/' },
+];
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <p class="footer-brand">Retire in Pattaya</p>
+        <p class="footer-desc">{SITE.tagline} We tell the whole story — including the downsides — so you can make a life-changing decision with clear eyes.</p>
+        <p class="trust-badge">🔒 We never host predatory advertisers.</p>
+      </div>
+      <nav class="footer-col" aria-label="Guides">
+        <h3>Guides</h3>
+        <ul>{topPillars.map((p) => <li><a href={`/${p.slug}/`}>{p.title}</a></li>)}</ul>
+      </nav>
+      <nav class="footer-col" aria-label="Explore">
+        <h3>Explore</h3>
+        <ul>{explore.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+      </nav>
+      <nav class="footer-col" aria-label="Trust & legal">
+        <h3>Trust &amp; Legal</h3>
+        <ul>{FOOTER_LEGAL_LINKS.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+      </nav>
+    </div>
+
+    <div class="footer-disclaimer"><strong>Important:</strong> {GLOBAL_DISCLAIMER}</div>
+    <div class="footer-bottom"><p>© {year} {SITE.name}. Built with care for people making one of life's biggest decisions.</p></div>
+  </div>
+</footer>
+
+<style>
+  .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: var(--space-6); }
+  .footer-brand { font-family: var(--font-serif); font-size: var(--text-xl); color: #fff; }
+  .footer-desc { color: #c2d8df; margin-top: var(--space-2); max-width: 34ch; }
+  .footer-col h3 { margin-bottom: var(--space-3); }
+  .footer-col ul { list-style: none; padding: 0; margin: 0; }
+  .footer-col li { margin-bottom: var(--space-2); }
+  .footer-col a { color: #dbeaf0; text-decoration: none; }
+  .footer-col a:hover { color: #fff; text-decoration: underline; }
+  .trust-badge { color: #bfe3cd; margin-top: var(--space-4); }
+  .footer-disclaimer { margin-top: var(--space-8); padding: var(--space-4) var(--space-5); background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius); color: #cfe2e8; font-size: var(--text-sm); }
+  .footer-bottom { margin-top: var(--space-5); padding-top: var(--space-4); border-top: 1px solid rgba(255,255,255,.12); color: #9fbcc6; font-size: var(--text-sm); }
+  @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; } }
+</style>

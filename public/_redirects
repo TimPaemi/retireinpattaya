@@ -1,0 +1,10 @@
+# Redirects for Cloudflare Pages.  Format:  FROM  TO  STATUS
+# HTTPS + www are handled by Cloudflare automatically.
+#
+# Use these when you MOVE a published URL (preserves SEO — never just delete a URL):
+#   /old-guide/            /new-guide/                 301
+#
+# Friendly short links you can hand out:
+/calculator/            /tools/can-i-afford-to-retire-in-pattaya/   301
+/insurance/             /healthcare/                                301
+/visa/                  /visas/                                     301

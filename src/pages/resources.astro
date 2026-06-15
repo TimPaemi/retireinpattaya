@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+import { LEAD_MAGNETS } from '../site.config';
+---
+<BaseLayout title="Free Guides & Checklists" description="Free, no-hype PDF guides and checklists for retiring in Pattaya — the starter kit, insurance and visa checklists, and a budget worksheet.">
+  <section class="section"><div class="container">
+    <div class="container-narrow" style="margin-inline:0;">
+      <Breadcrumbs crumbs={[{ label: 'Free Guides' }]} />
+      <h1>Free guides &amp; checklists</h1>
+      <p class="lead">Practical, honest PDFs to print or keep on your phone. No hype, no sales pitch.</p>
+    </div>
+    <h2 class="visually-hidden">Free downloads</h2>
+    <div class="grid grid-2 mt-8">
+      {LEAD_MAGNETS.map((m) => (
+        <div class="card">
+          <p class="eyebrow">PDF · free</p>
+          <h3 class="mt-0">{m.title}</h3>
+          <p class="text-muted">{m.blurb}</p>
+          <a class="btn btn-accent" href={m.file} download>Download PDF ↓</a>
+        </div>
+      ))}
+    </div>
+    <div class="container-narrow" style="margin-inline:0;"><NewsletterSignup heading="Want updates too?" blurb="Get occasional, honest updates as rules and costs change. Unsubscribe anytime." /></div>
+  </div></section>
+</BaseLayout>

@@ -1,0 +1,22 @@
+---
+/* Topic-tailored YMYL disclaimer. Drop into any page or article. */
+interface Props { topic?: 'financial' | 'medical' | 'visa' | 'legal' | 'general'; compact?: boolean; }
+const { topic = 'general', compact = false } = Astro.props;
+
+const lines: Record<string, string> = {
+  financial: 'This is general information, not financial, tax or investment advice. Figures and tax rules change and depend on your personal circumstances. Verify with official sources and a licensed financial or tax professional before acting.',
+  medical: 'This is general information, not medical advice. Healthcare costs, insurance terms and availability change and vary by individual. Confirm details with the hospital or insurer and a qualified professional.',
+  visa: 'This is general information, not immigration or legal advice. Visa rules, fees and financial requirements change frequently and are applied at the discretion of Thai authorities. Always verify with the Thai Immigration Bureau or a Thai Embassy before acting.',
+  legal: 'This is general information, not legal advice. Laws differ between Thailand and your home country and change over time. Consult a qualified lawyer in both jurisdictions before making decisions.',
+  general: 'Information only — not financial, tax, legal, immigration or medical advice. Rules change often; verify with official sources and a licensed professional before acting.',
+};
+---
+<aside class={`disclaimer ${compact ? 'is-compact' : ''}`} role="note">
+  <span class="callout-icon" aria-hidden="true">⚖️</span>
+  <p><strong>Please note:</strong> {lines[topic]}</p>
+</aside>
+<style>
+  .disclaimer { display: flex; gap: var(--space-3); align-items: flex-start; background: var(--sand-100); border: 1px solid var(--line-strong); border-left: 4px solid var(--accent-500); border-radius: var(--radius); padding: var(--space-4) var(--space-5); font-size: var(--text-sm); color: var(--ink-700); }
+  .disclaimer.is-compact { font-size: var(--text-xs); padding: var(--space-3) var(--space-4); }
+  .disclaimer p { margin: 0; }
+</style>

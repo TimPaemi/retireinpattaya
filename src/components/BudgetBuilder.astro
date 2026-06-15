@@ -1,0 +1,100 @@
+---
+import { BUDGET_ITEMS, BUDGET_META } from '../data/budget';
+import { CURRENCIES } from '../data/benchmarks';
+const payload = JSON.stringify({ BUDGET_ITEMS, CURRENCIES });
+---
+<section class="budget" aria-labelledby="bud-title">
+  <script type="application/json" id="rip-budget" set:html={payload}></script>
+  <div class="bud-controls">
+    <h2 id="bud-title" class="calc-h">Build your monthly budget</h2>
+    <div class="preset-row">
+      <span>Start from a preset:</span>
+      <button type="button" class="btn btn-ghost" data-preset="lean">Lean</button>
+      <button type="button" class="btn btn-ghost" data-preset="comfortable">Comfortable</button>
+      <button type="button" class="btn btn-ghost" data-preset="premium">Premium</button>
+    </div>
+    <div class="cur-row">
+      <label for="b-cur">Also show in</label>
+      <select id="b-cur">{CURRENCIES.filter((c) => c.code !== 'THB').map((c) => <option value={c.code}>{c.code}</option>)}</select>
+      <label for="b-fx">at ฿</label>
+      <input id="b-fx" type="number" min="0" step="0.1" style="max-width:7rem;" />
+      <span>per 1 <span data-bcur>GBP</span></span>
+    </div>
+  </div>
+
+  <div class="bud-grid">
+    <form id="bud-form" class="bud-table">
+      {BUDGET_ITEMS.map((it) => (
+        <div class="bud-row">
+          <label for={`b-${it.id}`}>{it.label}{it.hint && <span class="hint">{it.hint}</span>}</label>
+          <div class="input-money"><span class="cur-symbol">฿</span><input id={`b-${it.id}`} data-item={it.id} type="number" min="0" step="500" /></div>
+          <div class="bar"><span data-bar={it.id}></span></div>
+        </div>
+      ))}
+    </form>
+
+    <aside class="bud-total">
+      <p class="bud-total-eyebrow">Total each month</p>
+      <p class="bud-total-thb" id="b-total">฿0</p>
+      <p class="bud-total-home" id="b-total-home">—</p>
+      <hr />
+      <p class="bud-year">Per year: <strong id="b-year">฿0</strong></p>
+      <p class="text-muted bud-note">Placeholders last reviewed {BUDGET_META.lastReviewed}. Edit every line to your reality — especially insurance, which climbs with age.</p>
+      <button type="button" class="btn btn-ghost" id="b-copy">🔗 Copy shareable link</button>
+      <p class="copied" id="b-copied" hidden>Link copied.</p>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .budget { margin-block: var(--space-6); }
+  .preset-row, .cur-row { display:flex; flex-wrap:wrap; align-items:center; gap: var(--space-3); margin-top: var(--space-3); }
+  .cur-row input, .cur-row select { min-height: 44px; padding: var(--space-2) var(--space-3); border:2px solid var(--line-strong); border-radius: var(--radius-sm); }
+  .bud-grid { display:grid; grid-template-columns: 1.6fr 1fr; gap: var(--space-6); align-items:start; margin-top: var(--space-5); }
+  .bud-row { display:grid; grid-template-columns: 1fr 10rem; gap: var(--space-3); align-items:center; padding: var(--space-2) 0; border-bottom:1px solid var(--line); }
+  .bud-row label { font-weight:600; }
+  .bud-row .hint { display:block; }
+  .bar { grid-column: 1 / -1; height:6px; background: var(--surface-sunken); border-radius:999px; overflow:hidden; }
+  .bar span { display:block; height:100%; width:0; background: var(--brand-500); transition: width .2s; }
+  .bud-total { background: var(--brand-050); border:1px solid var(--brand-100); border-radius: var(--radius-lg); padding: var(--space-5); position:sticky; top:96px; }
+  .bud-total-eyebrow { text-transform:uppercase; letter-spacing:.07em; font-size:var(--text-xs); font-weight:700; color:var(--ink-500); }
+  .bud-total-thb { font-family:var(--font-serif); font-size:var(--text-3xl); color:var(--brand-900); }
+  .bud-total-home { color:var(--ink-700); font-size:var(--text-lg); }
+  .bud-total hr { border:none; border-top:1px solid var(--brand-100); margin:var(--space-4) 0; }
+  .bud-note { font-size:var(--text-xs); margin:var(--space-3) 0; }
+  @media (max-width: 820px){ .bud-grid{ grid-template-columns:1fr; } .bud-total{ position:static; } }
+</style>
+
+<script is:inline>
+(function(){
+  var data = JSON.parse(document.getElementById('rip-budget').textContent);
+  var $ = function(id){return document.getElementById(id);};
+  if(!$('bud-form')) return;
+  function curOf(){ return data.CURRENCIES.find(function(c){return c.code===$('b-cur').value;}) || data.CURRENCIES[0]; }
+  function setFx(force){ if(force||!$('b-fx').value) $('b-fx').value = curOf().thbPerUnit; var s=document.querySelector('[data-bcur]'); if(s) s.textContent=curOf().code; }
+  function inputs(){ return Array.prototype.slice.call(document.querySelectorAll('[data-item]')); }
+  function applyPreset(key){ data.BUDGET_ITEMS.forEach(function(it){ var el=document.querySelector('[data-item="'+it.id+'"]'); if(el) el.value = it[key]; }); render(); }
+  function render(){
+    var total=0; inputs().forEach(function(el){ total += parseFloat(el.value)||0; });
+    inputs().forEach(function(el){ var v=parseFloat(el.value)||0; var bar=document.querySelector('[data-bar="'+el.getAttribute('data-item')+'"]'); if(bar) bar.style.width=(total>0?(v/total*100):0)+'%'; });
+    $('b-total').textContent='฿'+Math.round(total).toLocaleString('en-GB');
+    var fx=parseFloat($('b-fx').value)||curOf().thbPerUnit; var c=curOf();
+    $('b-total-home').textContent='≈ '+c.symbol+Math.round(total/fx).toLocaleString('en-GB')+' / month';
+    $('b-year').textContent='฿'+Math.round(total*12).toLocaleString('en-GB');
+    var p=new URLSearchParams(); p.set('cur',$('b-cur').value); p.set('fx',$('b-fx').value||''); inputs().forEach(function(el){ p.set(el.getAttribute('data-item'), el.value||''); });
+    history.replaceState(null,'',location.pathname+'?'+p.toString());
+  }
+  function loadURL(){
+    var p=new URLSearchParams(location.search); var any=false;
+    if(p.get('cur')) $('b-cur').value=p.get('cur'); setFx(false);
+    if(p.get('fx')) $('b-fx').value=p.get('fx');
+    data.BUDGET_ITEMS.forEach(function(it){ var el=document.querySelector('[data-item="'+it.id+'"]'); if(p.get(it.id)){ el.value=p.get(it.id); any=true; } });
+    if(!any) applyPreset('comfortable'); else render();
+  }
+  document.querySelectorAll('[data-preset]').forEach(function(b){ b.addEventListener('click',function(){ applyPreset(this.getAttribute('data-preset')); }); });
+  $('b-cur').addEventListener('change',function(){ setFx(true); render(); });
+  $('bud-form').addEventListener('input',render);
+  $('b-copy').addEventListener('click',function(){ render(); if(navigator.clipboard) navigator.clipboard.writeText(location.href); var c=$('b-copied'); c.hidden=false; setTimeout(function(){c.hidden=true;},3000); });
+  setFx(false); loadURL();
+})();
+</script>

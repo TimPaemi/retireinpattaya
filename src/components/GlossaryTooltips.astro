@@ -1,0 +1,39 @@
+<div id="gloss-tip" role="tooltip" hidden></div>
+<style>
+  #gloss-tip { position: absolute; z-index: var(--z-modal); max-width: 22rem; background: var(--brand-900); color: #fff;
+    padding: var(--space-3) var(--space-4); border-radius: var(--radius); box-shadow: var(--shadow-lg);
+    font-size: var(--text-sm); line-height: 1.5; pointer-events: none; }
+  #gloss-tip strong { display:block; margin-bottom: 2px; color: #bfe3e8; }
+  #gloss-tip::after { content:''; position:absolute; top:-6px; left:var(--arrow,16px); border:6px solid transparent; border-top:0; border-bottom-color: var(--brand-900); }
+</style>
+<script is:inline>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('a.glossary-link'));
+  if(!links.length) return;
+  var tip = document.getElementById('gloss-tip'); var defs = null; var hideTimer;
+  function load(cb){ if(defs){cb();return;} fetch('/glossary-index.json').then(function(r){return r.json();}).then(function(j){defs=j;cb();}).catch(function(){}); }
+  function slugOf(a){ var h=a.getAttribute('href')||''; var i=h.indexOf('#'); return i>=0?h.slice(i+1):''; }
+  function show(a){
+    load(function(){
+      var d = defs && defs[slugOf(a)]; if(!d) return;
+      tip.innerHTML = '<strong>'+d.term+'</strong>'+d.def;
+      tip.hidden = false;
+      var r = a.getBoundingClientRect();
+      var top = r.bottom + window.scrollY + 8;
+      var left = r.left + window.scrollX;
+      var maxL = window.scrollX + document.documentElement.clientWidth - tip.offsetWidth - 12;
+      if(left > maxL) left = maxL;
+      tip.style.top = top+'px'; tip.style.left = Math.max(window.scrollX+8,left)+'px';
+      a.setAttribute('aria-describedby','gloss-tip');
+    });
+  }
+  function hide(){ tip.hidden = true; }
+  links.forEach(function(a){
+    a.addEventListener('mouseenter', function(){ clearTimeout(hideTimer); show(a); });
+    a.addEventListener('mouseleave', function(){ hideTimer=setTimeout(hide,120); });
+    a.addEventListener('focus', function(){ show(a); });
+    a.addEventListener('blur', hide);
+  });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') hide(); });
+})();
+</script>

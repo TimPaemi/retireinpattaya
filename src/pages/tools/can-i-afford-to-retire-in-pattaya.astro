@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Disclaimer from '../../components/Disclaimer.astro';
+import AffordabilityCalculator from '../../components/AffordabilityCalculator.astro';
+import { SITE } from '../../site.config';
+
+const faq = [
+  { q: 'How accurate is the "Can I afford to retire in Pattaya?" calculator?', a: 'It gives a realistic starting estimate using benchmark monthly costs you can adjust. It is not a personalised forecast: it does not include inflation, investment growth, one-off costs or your individual circumstances. Use it to get the shape of the picture, then confirm with real quotes and a professional.' },
+  { q: 'Does the calculator store or send my financial details?', a: 'No. It runs entirely in your web browser. The numbers you enter are never sent to us or stored on any server — there is no backend. You can even share a link that re-creates your inputs, but that link only exists if you copy and share it yourself.' },
+  { q: 'What monthly budget do I need to retire in Pattaya?', a: 'It depends heavily on the lifestyle you want and your health insurance costs, which rise with age. The tool offers lean, comfortable and premium starting benchmarks in Thai baht that you can tailor. Treat these as illustrative until you have checked current costs.' },
+  { q: 'Does it include health insurance?', a: 'Yes — separately, because insurance varies so much by age and health history. The tool adds a rough monthly insurance figure based on your age band, which you should replace with a real quote.' },
+];
+const url = new URL('/tools/can-i-afford-to-retire-in-pattaya/', SITE.url).href;
+const schemas = [
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
+    { '@type': 'ListItem', position: 2, name: 'Tools', item: new URL('/tools/', SITE.url).href },
+    { '@type': 'ListItem', position: 3, name: 'Can I Afford to Retire in Pattaya?', item: url },
+  ] },
+];
+---
+<BaseLayout
+  title="Can I Afford to Retire in Pattaya? (Free Calculator)"
+  description="Free, private calculator: your income, savings and chosen lifestyle to your monthly surplus or shortfall, and roughly how long your savings would last."
+  schemas={schemas}
+>
+  <section class="section"><div class="container">
+    <div class="container-narrow" style="margin-inline:0;">
+      <Breadcrumbs crumbs={[{ label: 'Tools', href: '/tools/' }, { label: 'Can I afford to retire in Pattaya?' }]} />
+      <p class="eyebrow">Free interactive tool</p>
+      <h1>Can I afford to retire in Pattaya?</h1>
+      <p class="lead">Put in your income, savings and the lifestyle you have in mind. You'll see — honestly — whether the numbers work, and roughly how long your savings would last. It runs entirely on your device; we never see your figures.</p>
+    </div>
+
+    <AffordabilityCalculator />
+
+    <div class="container-narrow" style="margin-inline:0;">
+      <Disclaimer topic="financial" />
+
+      <div class="prose flow mt-8">
+        <h2>How to read your result</h2>
+        <p>If your guaranteed income covers your monthly costs, you have a <strong>surplus</strong> — and your savings stay as a buffer for emergencies, big one-offs and the years when insurance climbs. If your costs are higher than your income, you have a <strong>shortfall</strong> topped up from savings, and the tool estimates how long that can last.</p>
+        <p>Two honest warnings the maths can't show you: <strong>health insurance can rise steeply</strong> as you age (sometimes faster than any other cost), and <strong>exchange rates move</strong> — a weaker home currency quietly shrinks your baht income. Both deserve a margin of safety. When in doubt, model the leaner tier.</p>
+
+        <h2>Common questions</h2>
+        {faq.map((f) => (
+          <details class="faq-item">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </div></section>
+</BaseLayout>
+<style>
+  .faq-item { border: 1px solid var(--line); border-radius: var(--radius); padding: var(--space-3) var(--space-4); margin-bottom: var(--space-3); background: #fff; }
+  .faq-item summary { font-weight: 700; cursor: pointer; color: var(--brand-900); }
+  .faq-item p { margin-top: var(--space-3); }
+</style>

@@ -1,0 +1,14 @@
+---
+interface Props { title: string; href: string; label: string; }
+const { title, href, label } = Astro.props;
+---
+<aside class="content-cta">
+  <p class="cta-title">{title}</p>
+  <a class="btn btn-accent" href={href}>{label}</a>
+</aside>
+<style>
+  .content-cta { display:flex; flex-wrap:wrap; gap: var(--space-4); align-items:center; justify-content:space-between;
+    background: var(--brand-050); border:1px solid var(--brand-100); border-radius: var(--radius-lg);
+    padding: var(--space-4) var(--space-5); margin-block: var(--space-5); }
+  .cta-title { font-family: var(--font-serif); font-size: var(--text-lg); color: var(--brand-900); margin:0; }
+</style>

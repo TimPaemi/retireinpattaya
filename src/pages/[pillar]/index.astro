@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import PillarLayout from '../../layouts/PillarLayout.astro';
+
+export async function getStaticPaths() {
+  const pillars = await getCollection('pillars');
+  const allGuides = await getCollection('guides', ({ data }) =>
+    import.meta.env.PROD ? data.draft === false : true
+  );
+  return pillars.map((entry) => ({
+    params: { pillar: entry.slug },
+    props: {
+      entry,
+      guides: allGuides
+        .filter((g) => g.data.pillar === entry.slug)
+        .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()),
+    },
+  }));
+}
+
+const { entry, guides } = Astro.props;
+const { Content } = await entry.render();
+---
+<PillarLayout entry={entry} guides={guides}>
+  <Content />
+</PillarLayout>

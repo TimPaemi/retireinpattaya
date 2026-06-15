@@ -1,0 +1,17 @@
+---
+interface Props { items: string[]; }
+const { items } = Astro.props;
+---
+{items.length > 0 && (
+  <aside class="takeaways" aria-label="Key takeaways">
+    <p class="tk-title">In short</p>
+    <ul>{items.map((i) => <li>{i}</li>)}</ul>
+  </aside>
+)}
+<style>
+  .takeaways { background: #fff; border: 1px solid var(--line); border-left: 5px solid var(--brand-600); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-5); margin-block: var(--space-5); }
+  .tk-title { text-transform: uppercase; letter-spacing: .07em; font-size: var(--text-xs); font-weight: 700; color: var(--brand-600); margin-bottom: var(--space-2); }
+  .takeaways ul { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-2); }
+  .takeaways li { padding-left: 1.6em; position: relative; }
+  .takeaways li::before { content: "✓"; position: absolute; left: 0; color: var(--ok-700); font-weight: 700; }
+</style>

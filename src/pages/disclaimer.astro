@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+<BaseLayout title="Full Disclaimer" description="Important information about the limits of the guidance on this site. Information only — not financial, tax, legal, immigration or medical advice.">
+  <section class="section"><div class="container container-narrow prose flow">
+    <Breadcrumbs crumbs={[{ label: 'Disclaimer' }]} />
+    <h1>Full Disclaimer</h1>
+    <p class="lead"><strong>Information only — not advice.</strong> Please read this carefully; relying on the wrong information in this field can be costly.</p>
+
+    <h2>Not professional advice</h2>
+    <p>Everything on Retire in Pattaya is general information for educational purposes. It is <strong>not</strong> financial, tax, investment, legal, immigration, insurance or medical advice, and it does not take account of your personal circumstances. Always consult an appropriately qualified and licensed professional before making decisions.</p>
+
+    <h2>Rules and figures change</h2>
+    <p>Visa requirements, tax rules, insurance terms, healthcare costs and laws change frequently, and some are applied at the discretion of authorities. Figures may be out of date by the time you read them. Always verify the current position with the relevant official source before acting.</p>
+
+    <h2>Accuracy &amp; verification</h2>
+    <p>We work hard to be accurate and to cite sources, but we cannot guarantee that all information is current or error-free. Where you see a verification marker, treat that figure as provisional until you confirm it.</p>
+
+    <h2>Our tools</h2>
+    <p>Our calculators provide rough estimates from general benchmarks and run entirely in your browser. They are illustrative starting points, not personalised forecasts or guarantees.</p>
+
+    <h2>External links &amp; commercial relationships</h2>
+    <p>We link to third-party sites we don't control and aren't responsible for. Some links are affiliate or referral links through which we may earn a commission at no extra cost to you; this never changes our editorial judgement (see <a href="/about/">About</a>).</p>
+
+    <h2>No liability</h2>
+    <p>To the fullest extent permitted by law, we accept no liability for any loss arising from reliance on information on this site. The decision — and the responsibility to verify with professionals — rests with you.</p>
+  </div></section>
+</BaseLayout>
