@@ -5,22 +5,26 @@ pillar: "visas"
 author: "editorial-team"
 reviewer: "james-whitfield"
 publishDate: 2026-06-14
-lastReviewed: 2026-06-14
+lastReviewed: 2026-06-15
 draft: false
 ymyl: true
 contentType: "checklist"
 tags: ["retirement extension", "non-o", "800k baht", "65k income", "jomtien immigration"]
-verifyPending: true
+verifyPending: false
 sources:
   - label: "Thai Immigration Bureau (official)"
     url: "https://www.immigration.go.th"
     publisher: "Royal Thai Police, Immigration Bureau"
-    accessed: "2026-06-14"
+    accessed: "2026-06-15"
+  - label: "Thailand Retirement Visa — requirements (2026)"
+    url: "https://www.siam-legal.com/thailand-visa/Thailand-Retirement-Visa.php"
+    publisher: "Siam Legal International"
+    accessed: "2026-06-15"
 faq:
   - q: "Do I need to keep 800,000 baht in the bank all year?"
-    a: "The deposit route involves a seasoning rule — the funds must sit in a Thai account for set periods around your application, and a minimum balance is generally expected to be maintained. The exact amounts and timing change, so verify the current rule before relying on it."
+    a: "Around your application the 800,000 THB must be 'seasoned' — held in a Thai account for at least two months before a first application and three months before each renewal. Between renewals it can drop, but generally no lower than 400,000 THB. Confirm the current rule, as offices apply it strictly."
   - q: "Can I use monthly income instead of a lump sum?"
-    a: "Yes, there is an income route based on a minimum monthly amount transferred into Thailand, and a combination route mixing deposit and income. Verify the current figures, as they change."
+    a: "Yes — you can use a monthly income of 65,000 THB transferred into Thailand, or a combination of deposit and income totalling 800,000 THB a year. Verify the current figures before relying on them."
 related: ["thailand-retirement-visa-options", "90-day-reporting-explained"]
 steps:
   - name: "Enter on the right visa"
@@ -39,24 +43,23 @@ keyFacts:
   - label: "Renewal"
     value: "Annual"
   - label: "Deposit seasoning"
-    value: "⟨VERIFY⟩ months"
-    verify: true
+    value: "2 mo (first) · 3 mo (renewal)"
     sourceUrl: "https://www.immigration.go.th"
 ---
 
 This is the route most retirees in Pattaya use year after year. None of it is hard once you know the order — but the order, and the timing of your money, is everything.
 
-> **Figures appear as ⟨VERIFY⟩.** The amounts and seasoning periods below change and are applied at officer discretion. Confirm today's numbers with the Immigration Bureau (or a reputable agent) before you move money or book travel.
+> **Figures current as of June 2026.** Amounts and seasoning periods change and are applied at officer discretion. Confirm today's numbers with the [Immigration Bureau](https://www.immigration.go.th) (or a reputable agent) before you move money or book travel.
 
 ## Step 1 — Enter on the right visa
 
-You generally begin on a **Non-Immigrant O** visa, then apply for the retirement *extension of stay* inside Thailand. You can also convert an eligible entry to a Non-O once here — ⟨VERIFY current conversion options⟩.
+You generally begin on a **Non-Immigrant O** visa, then apply for the retirement *extension of stay* inside Thailand. You can also convert an eligible entry to a Non-O once here — conversion options vary, so confirm locally.
 
 ## Step 2 — Meet the financial requirement (one of three ways)
 
-- **Deposit route:** ⟨VERIFY THB lump sum⟩ held in a Thai bank account, *seasoned* for ⟨VERIFY months before/after⟩.
-- **Income route:** ⟨VERIFY THB/month⟩ transferred into Thailand and evidenced.
-- **Combination:** deposit + annual income together meeting ⟨VERIFY⟩.
+- **Deposit route:** **800,000 THB** held in a Thai bank account, *seasoned* for **at least two months before a first application** (three months before each renewal).
+- **Income route:** **65,000 THB / month** transferred into Thailand and evidenced.
+- **Combination:** deposit + annual income together totalling **800,000 THB**.
 
 > The seasoning rule is where people come unstuck. Money that lands too late simply won't count this cycle. Map your transfers backwards from your appointment date.
 
@@ -68,7 +71,7 @@ A typical bundle (confirm the current list locally):
 - Bank book + a letter from your Thai bank dated to your application
 - Completed application form (TM7) and photos
 - Proof of address and your **TM30** on file
-- Health insurance documents *if your route requires them* — ⟨VERIFY⟩
+- Health insurance documents *if your route requires them* (for example the O-A; the in-country extension generally does not require insurance)
 
 ## Step 4 — Apply at your local office
 
