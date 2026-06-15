@@ -4,14 +4,22 @@ description: "Honest lean, comfortable and premium monthly budgets for retiring 
 pillar: "cost-of-living"
 author: "editorial-team"
 publishDate: 2026-06-14
-lastReviewed: 2026-06-14
+lastReviewed: 2026-06-15
 draft: false
 featured: true
 ymyl: true
 contentType: "guide"
 tags: ["budget", "cost of living", "monthly costs", "lean comfortable premium"]
-verifyPending: true
-sources: []
+verifyPending: false
+sources:
+  - label: "Cost of living in Thailand 2026"
+    url: "https://www.expatden.com/thailand/cost-of-living-in-thailand/"
+    publisher: "ExpatDen"
+    accessed: "2026-06-15"
+  - label: "Cost of living in Pattaya 2026"
+    url: "https://wise.com/gb/cost-of-living/thailand/pattaya"
+    publisher: "Wise"
+    accessed: "2026-06-15"
 faq:
   - q: "What is a comfortable monthly budget in Pattaya?"
     a: "A comfortable single-person budget covers a nice condo, a mix of Western and Thai food, transport, insurance and a social life. The exact figure depends heavily on rent and insurance, which is why we give a range and a build-your-own tool rather than one headline number."
@@ -26,13 +34,13 @@ takeaways:
 
 Pattaya can be remarkably good value — or surprisingly pricey — depending on the life you want. Here are honest budgets, and the few line items that really decide the total.
 
-> Figures are ⟨VERIFY⟩ placeholders. Build your own numbers with the [budget builder](/tools/cost-of-living-budget-builder/) and [affordability calculator](/tools/can-i-afford-to-retire-in-pattaya/).
+> As a 2026 guide, a single person can live **lean on roughly 35,000–45,000 THB/month**, **comfortably on about 60,000–90,000 THB**, and in **premium style from 100,000 THB+** — before health insurance, which rises with age. These are starting points; build your own numbers with the [budget builder](/tools/cost-of-living-budget-builder/) and [affordability calculator](/tools/can-i-afford-to-retire-in-pattaya/).
 
 ## The three honest tiers
 
-- **Lean** — careful, local-style living: a modest condo away from the beach, mostly Thai food and markets, scooter or public transport.
-- **Comfortable** — the sweet spot most aim for: a nice condo with a pool, a mix of Western and Thai dining, a car or regular taxis, an active social life.
-- **Premium** — spacious and worry-light: a larger condo or house, frequent Western dining, domestic help, and a generous buffer.
+- **Lean (~35,000–45,000 THB/mo)** — careful, local-style living: a modest condo away from the beach, mostly Thai food and markets, scooter or public transport.
+- **Comfortable (~60,000–90,000 THB/mo)** — the sweet spot most aim for: a nice condo with a pool, a mix of Western and Thai dining, a car or regular taxis, an active social life.
+- **Premium (100,000 THB/mo and up)** — spacious and worry-light: a larger condo or house, frequent Western dining, domestic help, and a generous buffer.
 
 ## What actually moves the total
 

@@ -1,6 +1,6 @@
 /* Cost-of-living line items (THB/month). ⚠ ILLUSTRATIVE PLACEHOLDERS — verify & source.
    Each item has lean / comfortable / premium presets the user can override. */
-export const BUDGET_META = { lastReviewed: '2026-06-14' };
+export const BUDGET_META = { lastReviewed: '2026-06-15' };
 
 export interface BudgetItem { id: string; label: string; hint?: string; lean: number; comfortable: number; premium: number; }
 

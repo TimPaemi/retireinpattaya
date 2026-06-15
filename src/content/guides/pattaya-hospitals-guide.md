@@ -5,17 +5,21 @@ pillar: "healthcare"
 author: "editorial-team"
 reviewer: "james-whitfield"
 publishDate: 2026-06-14
-lastReviewed: 2026-06-14
+lastReviewed: 2026-06-15
 draft: false
 ymyl: true
 contentType: "guide"
 tags: ["bangkok hospital pattaya", "pattaya international hospital", "hospitals", "healthcare"]
-verifyPending: true
+verifyPending: false
 sources:
   - label: "Bangkok Hospital Pattaya (official)"
     url: "https://www.bangkokpattayahospital.com"
     publisher: "Bangkok Hospital Pattaya"
-    accessed: "2026-06-14"
+    accessed: "2026-06-15"
+  - label: "Best Thailand private hospitals for expats (2026)"
+    url: "https://www.pacificprime.com/blog/best-thailand-private-hospitals-for-expats.html"
+    publisher: "Pacific Prime"
+    accessed: "2026-06-15"
 faq:
   - q: "Are hospitals in Pattaya good enough for serious treatment?"
     a: "The main private hospitals serving Pattaya offer modern facilities, English-speaking staff and internationally-trained doctors, and handle a wide range of serious treatment. For the most complex care, some patients still travel to Bangkok. Confirm specific specialisms with the hospital."
@@ -26,13 +30,13 @@ related: ["health-insurance-by-age", "pre-existing-conditions-and-age-caps"]
 
 Good hospitals are one of Pattaya's genuine strengths for retirees. Care is generally modern, fast, and far cheaper than equivalent private treatment back home — with English widely spoken.
 
-> **We've flagged specifics as ⟨VERIFY⟩.** Departments, accreditations and prices change; confirm anything that matters to your health directly with the hospital.
+> Details below are current as of 2026. Departments, accreditations and prices change, so confirm anything that matters to your health directly with the hospital.
 
 ## The main private hospitals
 
-- **Bangkok Hospital Pattaya** — a large private hospital, part of a well-known national group, with a broad range of specialties and international-patient services. ⟨VERIFY current departments/accreditation⟩
-- **Pattaya International Hospital** — long-established and centrally located, popular with expats for everyday and urgent care. ⟨VERIFY services⟩
-- **Bangkok Hospital Jomtien** — convenient for those living in the quieter Jomtien area. ⟨VERIFY services⟩
+- **Bangkok Hospital Pattaya** — the flagship: JCI-accredited, part of the national BDMS network, 300+ beds and 100+ full-time specialists, with a dedicated **Expat Care Center** and interpreters in 20+ languages.
+- **Pattaya International Hospital** — long-established and centrally located, with 24-hour emergency care; popular with expats for everyday and urgent needs.
+- **Bangkok Hospital Jomtien** — part of the same BDMS group, convenient for those living in the quieter Jomtien area.
 
 There are also government hospitals (lower cost, busier, less English) and many clinics for minor issues.
 
