@@ -104,3 +104,47 @@ All hard, sourceable figures are now filled and cited: visa amounts + seasoning,
 
 ## 🟢 Verdict
 Technically pristine, content now mostly sourced and honestly bylined, no fake credentials, no public leaks. This is a genuinely trustworthy, launch-ready site pending your domain + accounts + a named author.
+
+---
+
+# Deep Audit #3 — 15 June 2026 (crawl + expansion)
+
+A full crawl of the internal link graph, a content-gap analysis against real search demand, and a content expansion. Build green: **75 pages, 0 issues, 0 broken links / 3,220, 298 valid JSON-LD, 0 KB shared JS.**
+
+## 🐞 Real bug found and fixed
+- **`buying-property-foreign-ownership-rules.md` was truncated** — an earlier `sed -i` on the synced (FUSE) folder cut the file off mid-character at 2,997 bytes, silently dropping its last three sections. The build still passed (front-matter was intact), so it was invisible to normal checks; the deep UTF-8 integrity scan caught it. **Restored in full and verified all 41 guides now decode cleanly.** Lesson logged: full-file writes, not in-place `sed`, on this mount.
+
+## 🔗 Link-graph crawl — ✅ healthy
+- **Orphan pages: 0.** Every page has at least one inbound internal link.
+- **Weakly-linked pages: 0** (was 2 — the visa-eligibility checker and area-matcher quiz). Fixed by linking the area quiz from the *best areas* guide and the visa checker from the new Vietnam comparison.
+- Sitemap covers all indexable pages; embed/search/404 correctly excluded.
+
+## ➕ Content expansion — 33 → 41 guides
+Mapped gaps against what retirees actually search for, then added 8 guides (all sourced where fact-heavy):
+
+| New guide | Pillar | Why it matters |
+|---|---|---|
+| The DTV Visa: Is It Right for Retirees? | Visas | The newer 5-year visa people keep asking about |
+| Dental Care in Pattaya | Healthcare | Major dental-tourism draw; real costs |
+| Pharmacies & Getting Your Medications | Healthcare | Top practical worry for retirees |
+| US Taxes for American Retirees | Money | A whole audience segment (FBAR/FATCA) |
+| Learning Thai: How Much Do You Need? | Daily life | Common pre-move question |
+| Dating & Companionship Later in Life | Daily life | In the brief; handled with dignity + scam-safety |
+| Is Pattaya Safe? Crime & Safety | Safety | Fills a thin pillar; emergency numbers |
+| Thailand vs Vietnam for Retirement | Reality checks | High-demand comparison |
+
+**Pillar balance after:** healthcare 5, visas 6, money 4, cost-of-living 2, housing 3, daily-life 6, safety 3, getting-settled 5, legal/end-of-life 2, reality-checks 5.
+
+## YMYL state
+- `verifyPending`: **4** · ⟨VERIFY⟩ guides: **4** (the intentional legal/situational ones) · **21 of 41 guides now sourced**.
+
+## 🟡 Remaining thin pillars (next expansion targets, optional)
+- **Cost of living (2)** — add a couple's budget, and a utilities/bills deep-dive.
+- **Legal & end-of-life (2)** — add power of attorney, and marriage/partner legal basics.
+- **Housing (3)** — add a buying-process step-by-step and an accessibility/mobility housing guide.
+
+## 🔴 Still the only true blockers (yours, not code)
+Real named author · connect the domain · wire email + affiliate accounts.
+
+## Verdict
+A 75-page, fully-crawled, zero-defect site with balanced pillars and a real data-loss bug repaired. The machine side is comprehensively done; what's left is genuinely editorial (optional deepening) and your three real-world inputs.

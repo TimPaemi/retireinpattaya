@@ -46,7 +46,7 @@ The central strip is lively, convenient and never dull, but the noise, traffic a
 | Village calm | Bang Saray |
 | Buzz + convenience | Central Pattaya |
 
-**Visit each at night and in low season** before deciding — the daytime holiday version can mislead.
+**Visit each at night and in low season** before deciding — the daytime holiday version can mislead. Not sure where to start? Our [**Which Pattaya area suits you?** quiz](/tools/which-pattaya-area/) ranks the neighbourhoods against what matters to you.
 
 ## The bottom line
 
