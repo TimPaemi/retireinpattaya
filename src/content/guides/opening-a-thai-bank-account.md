@@ -16,7 +16,7 @@ faq:
     a: "Yes, though requirements vary by bank and branch and have tightened over time. Having the right visa or extension, your passport, and proof of address generally helps. Requirements differ between branches, so it pays to ask around."
   - q: "Do I need a Thai bank account for a retirement visa?"
     a: "For the deposit route you'll need a Thai account to hold and season the funds, and for the income route you'll want one to receive qualifying transfers. So banking and visa planning go hand in hand."
-related: ["sending-money-to-thailand", "retirement-extension-step-by-step"]
+related: ["sending-money-to-thailand", "retirement-extension-step-by-step", "your-first-30-days-checklist"]
 ---
 
 A Thai bank account is one of your first practical tasks — and it's tangled up with your visa, so the order matters. Here's how to approach it calmly.

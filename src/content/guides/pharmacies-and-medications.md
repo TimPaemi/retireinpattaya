@@ -16,7 +16,7 @@ faq:
     a: "Many common medicines are widely available at Thai pharmacies, often without a prescription and at lower prices than back home. But some specific brands or controlled medicines may be unavailable or restricted, so check that the drugs you rely on can be sourced here before you move — using their generic (chemical) names."
   - q: "Should I bring my medications from home?"
     a: "Bring a reasonable supply plus a doctor's letter listing your medicines by generic name and dosage, especially for the first months. For controlled medications, carry documentation and check both Thai and airline rules on what you can bring in."
-related: ["pattaya-hospitals-guide", "health-insurance-by-age"]
+related: ["pattaya-hospitals-guide", "health-insurance-by-age", "telemedicine-and-seeing-a-doctor"]
 ---
 
 Day-to-day medicine is easy and affordable in Pattaya — pharmacies are everywhere, staff often speak some English, and many common drugs are available cheaply over the counter. The key is making sure **your specific medications** can be sourced before you commit to a move.

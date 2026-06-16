@@ -1,0 +1,7 @@
+---
+import { getEntry } from 'astro:content';
+import CityLayout from '../../layouts/CityLayout.astro';
+const entry = await getEntry('cities', 'bangkok');
+const { Content, headings } = await entry.render();
+---
+<CityLayout entry={entry} headings={headings}><Content /></CityLayout>

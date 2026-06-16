@@ -1,0 +1,77 @@
+---
+import { CITIES, QUESTIONS } from '../data/cityQuiz';
+const payload = JSON.stringify({ CITIES, QUESTIONS });
+---
+<section class="matcher" aria-labelledby="cm-title">
+  <script type="application/json" id="rip-cityquiz" set:html={payload}></script>
+  <div class="calc-grid">
+    <form id="cm-form" class="calc-inputs">
+      <h2 id="cm-title" class="calc-h">Tell us what you want</h2>
+      {QUESTIONS.map((qq) => (
+        <fieldset class="field">
+          <legend>{qq.q}</legend>
+          {qq.options.map((o, oi) => (
+            <label class="tier-option">
+              <input type="radio" name={qq.id} value={oi} checked={oi === 0} />
+              <span class="tier-body"><span class="tier-label">{o.label}</span></span>
+            </label>
+          ))}
+        </fieldset>
+      ))}
+    </form>
+    <div class="calc-results" aria-live="polite">
+      <div class="verdict is-good">
+        <p class="verdict-eyebrow">Your best-fit destination</p>
+        <p class="verdict-head" id="cm-top">—</p>
+        <p class="verdict-sub" id="cm-desc">Answer the questions to see your match.</p>
+        <a id="cm-link" class="btn btn-accent" href="/">Read the full guide →</a>
+      </div>
+      <div class="watch">
+        <h3 class="mt-0">How the destinations rank for you</h3>
+        <div id="cm-bars"></div>
+      </div>
+      <p class="calc-caveat text-muted">Orientation, not gospel — visit your shortlist before deciding. Compare them side by side with our <a href="/compare/">destination comparison tool</a>.</p>
+    </div>
+  </div>
+</section>
+<style>
+  .matcher { margin-block: var(--space-6); }
+  .cm-bar { margin: var(--space-2) 0; }
+  .cm-bar-label { display:flex; justify-content:space-between; font-size: var(--text-sm); margin-bottom:2px; }
+  .cm-bar-track { height:10px; background: var(--surface-sunken); border-radius:999px; overflow:hidden; }
+  .cm-bar-fill { height:100%; background: var(--brand-500); border-radius:999px; transition: width .25s; }
+  .cm-bar.top .cm-bar-fill { background: var(--accent-500); }
+  .cm-bar.top .cm-bar-label { font-weight:700; color: var(--brand-900); }
+  #cm-link { margin-top: var(--space-3); }
+</style>
+<script is:inline>
+(function(){
+  var data=JSON.parse(document.getElementById('rip-cityquiz').textContent);
+  var form=document.getElementById('cm-form'); if(!form) return;
+  var names=data.CITIES.map(function(c){return c.name;});
+  var byName={}; data.CITIES.forEach(function(c){byName[c.name]=c;});
+  function compute(){
+    var t={}; names.forEach(function(n){t[n]=0;});
+    data.QUESTIONS.forEach(function(q){
+      var sel=form.querySelector('input[name="'+q.id+'"]:checked'); if(!sel) return;
+      var pts=q.options[parseInt(sel.value,10)].pts;
+      for(var n in pts){ t[n]=(t[n]||0)+pts[n]; }
+    });
+    return t;
+  }
+  function render(){
+    var t=compute();
+    var ranked=names.map(function(n){return {n:n,s:t[n]};}).sort(function(a,b){return b.s-a.s;});
+    var top=byName[ranked[0].n];
+    document.getElementById('cm-top').textContent=top.name;
+    document.getElementById('cm-desc').textContent=top.blurb;
+    var link=document.getElementById('cm-link'); link.setAttribute('href',top.url); link.textContent='Read the '+top.name+' guide →';
+    var max=Math.max(1, ranked[0].s);
+    document.getElementById('cm-bars').innerHTML=ranked.map(function(r,i){
+      var pct=Math.max(0,Math.round(r.s/max*100));
+      return '<div class="cm-bar'+(i===0?' top':'')+'"><div class="cm-bar-label"><span>'+r.n+'</span><span>'+r.s+'</span></div><div class="cm-bar-track"><div class="cm-bar-fill" style="width:'+pct+'%"></div></div></div>';
+    }).join('');
+  }
+  form.addEventListener('change',render); render();
+})();
+</script>

@@ -47,4 +47,9 @@ If you plan to use the **monthly-income route** for your retirement extension, t
 
 - A **specialist transfer service** for moving pension/savings over at a fair rate.
 - A **Thai bank account** for day-to-day spending and (if needed) your visa deposit.
-- A plan for **fewer, larger ATM withdrawals**, 
+- A plan for **fewer, larger ATM withdrawals**, or a low-fee card.
+- Keep **records** of transfers — useful for both visa evidence and tax questions.
+
+## The bottom line
+
+Don't let currency conversion be the silent tax on your retirement. Compare total costs, favour specialist services for regular transfers, minimise ATM nibbles, and set income transfers up correctly if your visa depends on them.

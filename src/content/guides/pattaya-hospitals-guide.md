@@ -24,7 +24,7 @@ faq:
     a: "The main private hospitals serving Pattaya offer modern facilities, English-speaking staff and internationally-trained doctors, and handle a wide range of serious treatment. For the most complex care, some patients still travel to Bangkok. Confirm specific specialisms with the hospital."
   - q: "Do I pay upfront at a Thai hospital?"
     a: "Private hospitals typically expect payment at the time of treatment unless you have insurance with a direct-billing arrangement, or you pay and claim back. Check whether your insurer direct-bills the hospital you'd use."
-related: ["health-insurance-by-age", "pre-existing-conditions-and-age-caps"]
+related: ["health-insurance-by-age", "pre-existing-conditions-and-age-caps", "telemedicine-and-seeing-a-doctor"]
 ---
 
 Good hospitals are one of Pattaya's genuine strengths for retirees. Care is generally modern, fast, and far cheaper than equivalent private treatment back home — with English widely spoken.
@@ -51,4 +51,4 @@ For routine and many serious needs, the private hospitals here are excellent val
 
 ## The bottom line
 
-Pattaya's private hospitals are a real as
+Pattaya's private hospitals are a real asset — modern, quick and good value. The catch is simply that care is paid-for, which makes your insurance or self-funding plan the thing to get right. See [health insurance by age](/healthcare/health-insurance-by-age/) next.

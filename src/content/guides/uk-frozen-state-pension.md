@@ -61,4 +61,8 @@ Broadly, those drawing (or about to draw) the UK State Pension while resident in
 - **Model the long-term gap**, not just today's payment. Assume a long retirement.
 - **Consider timing** — when and where you first claim can matter.
 - **Lean on other income** (private/workplace pensions, savings) to absorb the erosion.
-- **Get advice** from a regulated UK pensions adviser for your specific case — t
+- **Get advice** from a regulated UK pensions adviser for your specific case — this is information, not advice.
+
+## The bottom line
+
+The frozen pension is a genuine cost, but a predictable one. Understand it, model it over the full length of your retirement, and make sure your wider income can carry the slow erosion. Forewarned is forearmed.

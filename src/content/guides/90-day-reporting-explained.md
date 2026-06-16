@@ -51,4 +51,8 @@ You can file within a window around the due date: **from 15 days before to 7 day
 
 Expect a **fine** (around 2,000 THB) and a bit of hassle; persistent lapses make other tasks stickier. Set a phone reminder a week before each due date and it never becomes a problem.
 
-> **A simple habit:** photograph your reporting slip each time. The next due date is printed
+> **A simple habit:** photograph your reporting slip each time. The next due date is printed on it, and you'll want the record.
+
+## The bottom line
+
+90-day reporting is low-stakes but easy to forget. Treat it as a recurring calendar event, keep your slips, and it stays a five-minute formality.

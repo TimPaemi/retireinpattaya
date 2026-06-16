@@ -31,7 +31,7 @@ faq:
     a: "Pattaya is a well-known dental-tourism destination with modern, competitive clinics and English-speaking dentists. Prices are a fraction of Western costs — a cleaning runs roughly 1,500–3,000 THB and a single implant around 50,000 THB. Quality varies by clinic, so check credentials and reviews."
   - q: "Does health insurance cover dental?"
     a: "Many expat health policies exclude routine dental or cover it only as an add-on. Because dental work here is relatively affordable, some retirees simply pay out of pocket. Check your policy and budget for dental separately."
-related: ["pattaya-hospitals-guide", "health-insurance-by-age"]
+related: ["pattaya-hospitals-guide", "health-insurance-by-age", "telemedicine-and-seeing-a-doctor"]
 ---
 
 Good, affordable dentistry is one of Pattaya's quiet perks — it's a genuine dental-tourism hub, with modern clinics, English-speaking dentists and prices a fraction of what you'd pay back home.

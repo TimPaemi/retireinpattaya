@@ -43,4 +43,20 @@ The single biggest mistake is leaving it late. Vaccinations have minimum waiting
 
 - **Microchip first, then rabies vaccination** — your pet must be **at least 3 months old** when vaccinated, and the rabies shot must be given **more than 21 days before** travel (the rabies certificate should show the microchip number).
 - **Other core vaccines** — dogs also need distemper, hepatitis, parvovirus and leptospirosis cover; cats need panleukopenia.
-- **A veterinary health cer
+- **A veterinary health certificate** issued close to travel by an accredited vet.
+- **An import permit** from Thailand's **Department of Livestock Development (DLD)** — apply ahead (processing is typically ~5–7 business days, and the permit is valid ~60 days).
+- **Airline requirements** for the crate, breed and travel conditions.
+
+Reassuringly, Thailand does **not** require a rabies blood-titer test (unlike the EU), which removes one of the longest delays.
+
+## Should you use an agent?
+
+For the airline booking, customs clearance and paperwork choreography, a **reputable pet-relocation agent** is often money well spent — especially for a stressful long-haul move with a beloved animal. Get clear quotes and check reviews.
+
+## Settling your pet in
+
+The heat is the main adjustment — plan for shade, water and cooler walk times, and find a good local vet early (Pattaya has several). Many condos allow pets, but confirm before you sign a lease.
+
+## The bottom line
+
+Bringing your pet is very doable, but it rewards early, careful planning. Verify the current rules, respect the vaccination timelines, and consider an agent for the logistics. Then enjoy the sunshine together.

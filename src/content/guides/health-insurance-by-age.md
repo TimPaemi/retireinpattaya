@@ -25,7 +25,7 @@ faq:
     a: "Premiums reflect the rising likelihood of claims as we get older, so they climb — sometimes steeply — decade by decade. New conditions can be excluded, and beyond certain ages some insurers stop offering new policies altogether."
   - q: "Should I buy health insurance before I move?"
     a: "Securing cover while you're younger and healthier generally means easier acceptance and fewer exclusions, and you keep continuity as you age. Waiting can mean higher prices, exclusions, or — later — no new cover available. This is general information, not advice; speak to a broker."
-related: ["pre-existing-conditions-and-age-caps", "pattaya-hospitals-guide"]
+related: ["pre-existing-conditions-and-age-caps", "pattaya-hospitals-guide", "telemedicine-and-seeing-a-doctor"]
 takeaways:
   - "Insurance is the cost that quietly decides whether retiring abroad works long-term."
   - "Premiums rise steeply with age, and some insurers stop offering new cover later."
@@ -64,4 +64,10 @@ Roughly speaking, premiums climb with each decade and can multiply several times
 ## What to do about it
 
 - **Get covered earlier rather than later**, and keep it continuous.
-- **Match cover to need and budget** — comprehensive international cover is reassuring but expe
+- **Match cover to need and budget** — comprehensive international cover is reassuring but expensive; some retirees choose regional cover plus a self-funding buffer.
+- **Read the renewal track record**, not just the first-year price.
+- **Have a Plan B**: know what you'd do if cover became unaffordable or unavailable — including, for some, the honest option of returning home.
+
+## The bottom line
+
+The insurance question isn't a detail; for many it's *the* deciding factor in whether a move abroad is wise. Treat it as central, act while you're younger, and budget for a cost that rises as you age.

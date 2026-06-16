@@ -39,7 +39,7 @@ faq:
     a: "For the deposit route you generally need 800,000 THB held in a Thai bank account, 'seasoned' for at least two months before a first application (three months before each renewal). Alternatively you can use a 65,000 THB monthly income, or a combination totalling 800,000 THB a year. Verify current figures before relying on them."
   - q: "Do I need health insurance for a Thai retirement visa?"
     a: "It depends on the route. The O-A visa carries a mandatory health-insurance requirement (commonly cited at 3,000,000 THB / US$100,000 of cover, though some embassies still accept the older 40,000/400,000 THB standard). The in-country retirement extension has not generally required insurance. Rules vary by office and change — confirm before applying."
-related: []
+related: ["using-a-visa-agent-vs-diy"]
 takeaways:
   - "Most retirees aged 50+ have a legal route — usually the annual retirement extension."
   - "Every financial figure changes; verify the current numbers before you act."
@@ -114,4 +114,20 @@ You'll hear that you "need an agent." You don't always — plenty of retirees ha
 
 - **DIY** keeps costs down and you fully in control — good if your situation is straightforward.
 - **A reputable agent** can save time and stress, especially in your first year.
-- **Be cautious** of any agent promising to bypass the financial requirements with "guaranteed" methods. Arrangements that look like a shortcut around the rules carry real risk — see [Safety & Sc
+- **Be cautious** of any agent promising to bypass the financial requirements with "guaranteed" methods. Arrangements that look like a shortcut around the rules carry real risk — see [Safety & Scams](/safety-scams/).
+
+## The bits everyone forgets
+
+Three ongoing obligations trip up newcomers. We cover each in its own guide, but in short:
+
+- **90-day reporting** — report your address every 90 days; you can file from 15 days before to 7 days after the due date (a late report risks a ~2,000 THB fine).
+- **TM30** — your address is notified to immigration within 24 hours of arrival (usually by your landlord or hotel); you'll need it for other tasks.
+- **Re-entry permit** — get one *before* you leave Thailand, or your extension is void on exit (single ~1,000 THB, multiple ~3,800 THB — verify current fees).
+
+## Why people actually get refused
+
+It's rarely dramatic. Usually it's: money not seasoned long enough, the wrong account type, a missing TM30, insurance that doesn't meet the minimum, or paperwork that doesn't match. Almost all of it is avoidable with a checklist and a little lead time.
+
+## The bottom line
+
+For most retirees aged 50+, the **annual retirement extension** is the natural starting point; the **LTR** is worth a serious look if your income is comfortable and you'd rather minimise yearly admin. Whichever route you consider, confirm today's figures against the official source before you commit money or book travel — and when in doubt, get advice from a qualified Thai immigration professional.

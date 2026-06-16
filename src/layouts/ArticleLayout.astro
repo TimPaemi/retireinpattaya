@@ -35,7 +35,7 @@ const readingMinutes = Math.max(1, Math.round(words / 200));
 const all = await getCollection('guides', ({ data }) => (import.meta.env.PROD ? !data.draft : true));
 const explicit = all.filter((g) => d.related.includes(g.slug) && g.slug !== entry.slug);
 const siblings = all.filter((g) => g.data.pillar === d.pillar && g.slug !== entry.slug && !d.related.includes(g.slug));
-const related = [...explicit, ...siblings].slice(0, 4).map((g) => ({ slug: g.slug, pillar: g.data.pillar, title: g.data.title, description: g.data.description }));
+const related = [...explicit, ...siblings].slice(0, 6).map((g) => ({ slug: g.slug, pillar: g.data.pillar, title: g.data.title, description: g.data.description }));
 
 const url = new URL(`/${d.pillar}/${entry.slug}/`, SITE.url).href;
 const showInsurance = d.pillar === 'healthcare' || d.pillar === 'money';

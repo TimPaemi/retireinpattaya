@@ -39,4 +39,26 @@ Thailand's approach to taxing **income remitted into the country** by residents 
 
 - **Tax residency** — you're a Thai tax resident if you spend **180 days or more** in Thailand in a calendar year (resets each 1 January).
 - **Remittance** — since **1 January 2024**, foreign income you *remit* (bring) into Thailand as a tax resident is assessable; income you don't bring in generally isn't taxed.
-- **Treaties** — a double-tax agreement between Thailan
+- **Treaties** — a double-tax agreement between Thailand and your country may reduce or remove the liability (some government pensions, for example). Check your country's treaty.
+- **Type of income** — pensions, savings and investment income can be treated differently, and qualifying **LTR-visa** holders may be exempt on remitted foreign income.
+
+## What to do
+
+- **Don't panic, and don't guess.** Rumours travel fast in expat circles and are often wrong or out of date.
+- **Confirm the current rules** from official Thai sources.
+- **Get cross-border tax advice** for your specific situation — ideally someone familiar with both Thailand and your home country.
+- **Keep good records** of money transferred in.
+
+## Tax guidance by nationality
+
+Your home country's rules and any tax treaty matter as much as Thailand's. We cover the main groups:
+
+- **UK:** the [frozen State Pension](/money/uk-frozen-state-pension/) issue.
+- **US:** [FBAR, FATCA and filing](/money/us-taxes-for-american-retirees/).
+- **Australia:** [Age Pension portability & tax](/money/australian-pension-and-tax-thailand/).
+- **Canada:** [CPP/OAS and the 25% withholding](/money/canadian-pension-and-tax-thailand/).
+- **Germany & Europe:** [pension taxation & treaties](/money/german-european-pension-and-tax-thailand/).
+
+## The bottom line
+
+Thai tax on foreign income is real, changing, and individual. Treat anything you read (including this) as a prompt to verify and get professional advice — not as a final answer. It's worth doing properly.

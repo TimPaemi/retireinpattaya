@@ -49,3 +49,5 @@ These three towns dominate the "where to retire in Thailand" conversation, and t
 ## The bottom line
 
 There's no winner — only the right fit for you. If you value the sea, healthcare choice and an easy social scene, Pattaya is a strong contender. If cooler air and culture call (and you can plan around burning season), Chiang Mai. For quiet gentility, Hua Hin. **Visit all three** before you commit.
+
+Weighing your wider options? We have deep destination guides to retiring in [Phuket](/phuket/), [Bangkok](/bangkok/), [Koh Samui](/samui/), [Chiang Mai](/chiang-mai/) and [Hua Hin](/hua-hin/).

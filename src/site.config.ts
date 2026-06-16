@@ -58,6 +58,7 @@ export const TOOLS = [
   { slug: 'cost-of-living-budget-builder', title: 'Cost-of-Living Budget Builder', summary: 'Build an itemised monthly budget in ฿ and your home currency.', status: 'live' },
   { slug: 'pension-fx-tool', title: 'Pension & Exchange-Rate Tool', summary: 'See how exchange-rate swings change your baht income month to month.', status: 'live' },
   { slug: 'which-pattaya-area', title: 'Which Pattaya Area Suits You?', summary: 'Answer four questions to find your best-fit neighbourhood, with reasons.', status: 'live' },
+  { slug: 'where-in-thailand', title: 'Where in Thailand Should You Retire?', summary: 'Six questions match you to Pattaya, Phuket, Bangkok, Samui, Chiang Mai or Hua Hin.', status: 'live' },
 ] as const;
 
 /* ----------------------------------------------------------------------------

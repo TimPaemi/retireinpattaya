@@ -22,7 +22,14 @@ const {
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? SITE.url).href;
 const ogImage = new URL(image, Astro.site ?? SITE.url).href;
+// Social title keeps the brand for richer cards.
 const fullTitle = title === SITE.name ? title : `${title} — ${SITE.name}`;
+// <title> tag is kept <=60 chars so Google shows it without truncation.
+// Page titles already lead with the topic + Pattaya/Thailand keywords, so when
+// the branded form is too long we fall back to the (already keyword-rich) title.
+const metaTitle = fullTitle.length <= 60
+  ? fullTitle
+  : (title.length <= 60 ? title : `${title.slice(0, 59).trimEnd()}…`);
 
 // Always-present site identity schema.
 const baseSchemas: Record<string, unknown>[] = [
@@ -61,7 +68,7 @@ const allSchemas = [...baseSchemas, ...schemas];
 <link rel="canonical" href={canonical} />
 <meta name="generator" content={Astro.generator} />
 
-<title>{fullTitle}</title>
+<title>{metaTitle}</title>
 <meta name="description" content={description} />
 {noindex && <meta name="robots" content="noindex, nofollow" />}
 

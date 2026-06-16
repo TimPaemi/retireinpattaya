@@ -24,7 +24,7 @@ faq:
     a: "Around your application the 800,000 THB must be 'seasoned' — held in a Thai account for at least two months before a first application and three months before each renewal. Between renewals it can drop, but generally no lower than 400,000 THB. Confirm the current rule, as offices apply it strictly."
   - q: "Can I use monthly income instead of a lump sum?"
     a: "Yes — you can use a monthly income of 65,000 THB transferred into Thailand, or a combination of deposit and income totalling 800,000 THB a year. Verify the current figures before relying on them."
-related: ["thailand-retirement-visa-options", "90-day-reporting-explained"]
+related: ["thailand-retirement-visa-options", "90-day-reporting-explained", "using-a-visa-agent-vs-diy"]
 steps:
   - name: "Enter on the right visa"
     text: "Begin on a Non-Immigrant O visa, then apply for the retirement extension inside Thailand."
@@ -81,4 +81,9 @@ For most of Pattaya that's **Jomtien Immigration**. Go early; queues build. Many
 The extension isn't "set and forget":
 
 - File your **[90-day report](/visas/90-day-reporting-explained/)** on time.
-- Keep your **[TM30](/visas/tm30-explained/)** ad
+- Keep your **[TM30](/visas/tm30-explained/)** address notification current.
+- Get a **re-entry permit before any trip abroad**, or your extension can lapse on exit.
+
+## The honest bottom line
+
+The retirement extension is well-trodden and manageable. Your two jobs are simple: **get the money timing right**, and **stay on top of the small ongoing tasks**. Do those, and renewal becomes a calm annual routine rather than a yearly scramble.

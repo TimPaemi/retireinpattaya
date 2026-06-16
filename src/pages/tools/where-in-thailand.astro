@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CityMatcher from '../../components/CityMatcher.astro';
+---
+<BaseLayout title="Where in Thailand Should You Retire? (Quiz)" description="Answer six quick questions to find your best-fit Thai retirement destination — Pattaya, Phuket, Bangkok, Koh Samui, Chiang Mai or Hua Hin — with reasons.">
+  <section class="section"><div class="container">
+    <div class="container-narrow" style="margin-inline:0;">
+      <Breadcrumbs crumbs={[{ label: 'Tools', href: '/tools/' }, { label: 'Where should you retire?' }]} />
+      <p class="eyebrow">Free interactive tool</p>
+      <h1>Where in Thailand should you retire?</h1>
+      <p class="lead">Six quick questions, then a best-fit destination with the runners-up ranked — and a link straight to our deep guide for it. A starting point, not a verdict.</p>
+    </div>
+    <CityMatcher />
+  </div></section>
+</BaseLayout>

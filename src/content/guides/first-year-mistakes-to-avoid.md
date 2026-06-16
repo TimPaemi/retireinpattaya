@@ -16,7 +16,7 @@ faq:
     a: "The classics: buying property too soon, under-budgeting for insurance, drinking more out of boredom, isolating instead of building community, and trusting the wrong people with money. Almost all are avoidable with patience and a plan."
   - q: "How can I make my first year abroad easier?"
     a: "Rent before buying, get insurance sorted early, build social routines from week one, keep an emergency buffer, and verify anything financial or legal independently. Go slow on big commitments until you truly know the place."
-related: ["who-should-not-retire-in-pattaya", "realistic-monthly-budget-pattaya"]
+related: ["who-should-not-retire-in-pattaya", "realistic-monthly-budget-pattaya", "pattaya-weather-best-time-to-move"]
 ---
 
 Most first-year regrets are avoidable. Here are the mistakes we see most often — and the simple ways to sidestep each one.

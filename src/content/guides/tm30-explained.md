@@ -24,7 +24,7 @@ faq:
     a: "The notification is the responsibility of the house-master, owner or possessor of the property where you stay â€” in practice your landlord, condo office or hotel. As the resident, though, you are the one who suffers the hold-up if it isn't done, so confirm it's filed."
   - q: "Do I need a new TM30 every time I travel?"
     a: "Rules on re-notification after travel have varied over time and by office. Check your local office's current practice rather than assuming."
-related: ["90-day-reporting-explained", "retirement-extension-step-by-step"]
+related: ["90-day-reporting-explained", "retirement-extension-step-by-step", "your-first-30-days-checklist"]
 ---
 
 The TM30 is small, easily overlooked, and the reason more than one retiree has been turned away at the immigration counter. Here's what it is and how to stay clear of trouble.
@@ -43,4 +43,8 @@ Immigration may ask to see that your TM30 is on file when you do other things â€
 - If you rent privately and the owner is hands-off, you may be able to file it yourself online or in person (self-filing options vary by office).
 - Keep the receipt with your passport copies.
 
-> **Before any immigration appointment,** check your TM30 is curren
+> **Before any immigration appointment,** check your TM30 is current. Two minutes now saves a wasted trip and a return queue.
+
+## The bottom line
+
+The TM30 is the classic "boring but important" task. Get your copy when you move in, keep it with your documents, and re-check it before each immigration errand.

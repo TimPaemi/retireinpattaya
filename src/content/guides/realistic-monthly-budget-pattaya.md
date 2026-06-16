@@ -48,4 +48,18 @@ Three line items swing your budget far more than the rest:
 
 1. **Rent** — the single biggest lever. Area and size matter hugely.
 2. **Health insurance** — modest at younger ages, steep later. Budget for it rising.
-3. **Lifestyle** 
+3. **Lifestyle** — eating out and travel are where "comfortable" quietly becomes "premium."
+
+Everything else (groceries, utilities, transport, phone) is relatively predictable.
+
+## The costs that aren't monthly
+
+Don't budget only for the steady months. Set aside for the annual visa cycle, flights home, and a real emergency buffer — see [hidden costs people forget](/cost-of-living/hidden-costs-retirees-forget/).
+
+## Retiring as a couple?
+
+Two don't cost twice one — see our [couple's budget guide](/cost-of-living/retiring-as-a-couple-budget/) for honest two-person numbers.
+
+## The bottom line
+
+There's no single "cost of Pattaya" — there's the cost of *your* Pattaya. Pin down rent and insurance, be honest about lifestyle, and build the number yourself rather than trusting a headline.

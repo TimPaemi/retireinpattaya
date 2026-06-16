@@ -20,7 +20,7 @@ faq:
     a: "Usually not. Many rentals come furnished and local furniture is inexpensive, so sea-freighting bulky items often costs more than replacing them. Shipping makes more sense for sentimental, specialist or hard-to-replace possessions."
   - q: "How do people move their belongings to Thailand?"
     a: "Options range from a few checked bags, to air freight for a modest amount, to a sea-freight container for a full household. Most retirees travel light and buy locally; verify customs rules and use a reputable international mover for anything large."
-related: ["importing-pets-to-thailand", "renting-in-pattaya-what-to-check"]
+related: ["importing-pets-to-thailand", "renting-in-pattaya-what-to-check", "your-first-30-days-checklist"]
 ---
 
 The instinct is to bring everything. The reality is that travelling lighter usually saves money and stress — here's how to decide what makes the journey.

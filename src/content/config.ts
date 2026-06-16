@@ -91,4 +91,26 @@ const authors = defineCollection({
   }),
 });
 
-export const collections = { guides, pillars, authors };
+
+/* ---- CITIES: deep destination hubs (/phuket/, /bangkok/) ---- */
+const cities = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string().max(75),
+    description: z.string().min(50).max(165),
+    city: z.string(),
+    intro: z.string(),
+    publishDate: z.coerce.date(),
+    lastReviewed: z.coerce.date(),
+    verifyPending: z.boolean().default(false),
+    heroImage: z.string().optional(),
+    sources: z.array(sourceSchema).default([]),
+    keyFacts: z.array(z.object({
+      label: z.string(), value: z.string(),
+      verify: z.boolean().default(false), sourceUrl: z.string().url().optional(),
+    })).default([]),
+    faq: z.array(faqItem).default([]),
+  }),
+});
+
+export const collections = { guides, pillars, authors, cities };

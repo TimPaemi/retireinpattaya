@@ -16,7 +16,7 @@ faq:
     a: "Generally yes — home fibre and mobile data are widely available and inexpensive by Western standards, which makes video calls home and everyday online life easy. Speeds and reliability vary by building and provider, so ask before you commit to a condo."
   - q: "Should I get a Thai SIM card?"
     a: "Yes, a local SIM is cheap and convenient for data, calls and the verification codes many local services need. You can start with a prepaid SIM and switch to a monthly plan once you're settled."
-related: ["opening-a-thai-bank-account", "thai-driving-licence"]
+related: ["opening-a-thai-bank-account", "thai-driving-licence", "your-first-30-days-checklist"]
 ---
 
 Staying connected — to family back home and to daily life here — is easy and cheap in Pattaya. A little setup in your first week and you're sorted.

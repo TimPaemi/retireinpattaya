@@ -52,6 +52,10 @@ As a foreigner, you generally **cannot own land** outright. That's why a house i
 - **Be wary of any structure** whose main purpose is to get around the land rules.
 - **Don't rush** — pressure is a warning sign.
 
+## Ready to buy?
+
+If you've decided a condo is right, follow our [step-by-step condo-buying guide](/housing/buying-a-condo-step-by-step/) — including the crucial foreign-currency (FET) transfer.
+
 ## The bottom line
 
 Condos are the clean, legal path to ownership for most foreigners; land is restricted and the workarounds carry real risk. Independent Thai legal advice isn't optional here — it's the whole game.
