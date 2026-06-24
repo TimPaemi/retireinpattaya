@@ -59,7 +59,7 @@ def render(slug, title, pillar):
     for ln in lines:
         d.text((80,y),ln,font=title_f,fill=(255,255,255,255)); y+=70
     # footer
-    d.text((80,560),"RETIRE IN PATTAYA  ·  retireinpattaya.com",font=foot_f,fill=(191,227,232,255))
+    d.text((80,560),"RETIRE IN PATTAYA  ·  retire-in-pattaya.com",font=foot_f,fill=(191,227,232,255))
     img.save(os.path.join(OUT,slug+".png"),"PNG")
 
 def frontmatter(path):

@@ -8,13 +8,13 @@ export const SITE = {
   name: 'Retire in Pattaya',
   shortName: 'Retire in Pattaya',
   // Keep in sync with `site` in astro.config.mjs when your domain goes live.
-  url: 'https://www.retireinpattaya.com',
+  url: 'https://retire-in-pattaya.com',
   tagline: 'The honest guide to retiring well in Pattaya.',
   description:
     'Calm, candid, carefully-sourced guidance on retiring in Pattaya — visas, healthcare, money, housing and the downsides others skip. Information only, not advice.',
   locale: 'en',
   // Used by Organization schema + footer. Update as the brand grows.
-  email: 'hello@retireinpattaya.com',
+  email: 'hello@retire-in-pattaya.com',
   founded: '2026',
   sameAs: [] as string[], // social profile URLs, when you create them
   // Default social share image (place a 1200x630 file at /public/og-default.png later)

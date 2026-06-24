@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /embed/
 
-Sitemap: https://www.retireinpattaya.com/sitemap-index.xml
+Sitemap: https://retire-in-pattaya.com/sitemap-index.xml

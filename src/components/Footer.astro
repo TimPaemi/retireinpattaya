@@ -16,6 +16,26 @@ const explore = [
   { label: 'Glossary', href: '/glossary/' },
   { label: 'Our Authors', href: '/authors/' },
 ];
+const network = [
+  { name: 'TimPaemi', href: 'https://timpaemi.com/' },
+  { name: 'Pattaya Authority', href: 'https://pattaya-authority.com/' },
+  { name: 'TimPaemi Live', href: 'https://timpaemi.live/' },
+  { name: 'Pattaya Restaurant Guide', href: 'https://pattaya-restaurant-guide.com/' },
+  { name: 'Pattaya Coffee', href: 'https://pattaya-coffee.com/' },
+  { name: 'Pattaya Visa Help', href: 'https://pattayavisahelp.com/' },
+  { name: 'Pattaya School Guide', href: 'https://pattaya-school-guide.com/' },
+  { name: 'Move to Pattaya', href: 'https://movetopattaya.com/' },
+  { name: 'PattayaTools', href: 'https://pattayatools.pages.dev/' },
+  { name: 'Pattaya Gym', href: 'https://pattaya-gym.com/' },
+  { name: 'Pattaya Medical', href: 'https://pattaya-medical.com/' },
+  { name: 'Pattaya After Dark', href: 'https://pattaya-afterdark.com/' },
+  { name: 'Pattaya Villa Stream', href: 'https://pattayastream.com/' },
+  { name: 'Pattaya Golf', href: 'https://pattaya-golf.com/' },
+  { name: 'Pattaya Vehicle Rentals', href: 'https://pattaya-vehicle-rentals.com/' },
+  { name: 'PattayaPets', href: 'https://pattayapets.com/' },
+  { name: 'Koh Larn Guide', href: 'https://koh-larn-thailand.com/' },
+  { name: 'Pattaya Insider', href: 'https://pattaya-insider.com/' },
+];
 ---
 <footer class="site-footer">
   <div class="container">
@@ -39,6 +59,11 @@ const explore = [
       </nav>
     </div>
 
+    <nav class="footer-network" aria-label="Pattaya Authority network">
+      <p class="footer-network-label">Part of the Pattaya Authority network · Built in Pattaya. For Pattaya.</p>
+      <div class="footer-network-links">{network.map((s) => <a href={s.href} rel="noopener noreferrer" target="_blank">{s.name}</a>)}</div>
+    </nav>
+
     <div class="footer-disclaimer"><strong>Important:</strong> {GLOBAL_DISCLAIMER}</div>
     <div class="footer-bottom"><p>© {year} {SITE.name}. Built with care for people making one of life's biggest decisions.</p></div>
   </div>
@@ -58,4 +83,9 @@ const explore = [
   .footer-bottom { margin-top: var(--space-5); padding-top: var(--space-4); border-top: 1px solid rgba(255,255,255,.12); color: #9fbcc6; font-size: var(--text-sm); }
   @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; } }
+  .footer-network { margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid rgba(255,255,255,.12); }
+  .footer-network-label { color: #bfe3cd; font-size: var(--text-sm); margin-bottom: var(--space-3); }
+  .footer-network-links { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); }
+  .footer-network-links a { color: #dbeaf0; text-decoration: none; font-size: var(--text-sm); }
+  .footer-network-links a:hover { color: #fff; text-decoration: underline; }
 </style>
