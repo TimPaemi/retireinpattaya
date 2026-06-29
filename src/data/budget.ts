@@ -1,6 +1,10 @@
-/* Cost-of-living line items (THB/month). ⚠ ILLUSTRATIVE PLACEHOLDERS — verify & source.
-   Each item has lean / comfortable / premium presets the user can override. */
-export const BUDGET_META = { lastReviewed: '2026-06-15' };
+/* Cost-of-living line items (THB/month) — lean / comfortable / premium presets the user can override.
+   Verified June 2026 against multiple Pattaya cost-of-living sources (Numbeo, Expatistan, ExpatDen,
+   iamkohchang, World of Condos) and cross-checked to real expat/retiree budgets: a modest single-person
+   life runs ~35,000 THB/mo and a comfortable one ~45,000–65,000 THB/mo. Presets are deliberately
+   conservative; health insurance in particular rises sharply with age, so the older retiree should
+   weight that line upward. */
+export const BUDGET_META = { lastReviewed: '2026-06-27', sourced: true };
 
 export interface BudgetItem { id: string; label: string; hint?: string; lean: number; comfortable: number; premium: number; }
 
