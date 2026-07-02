@@ -1,5 +1,88 @@
+# Retire in Pattaya
+# https://retire-in-pattaya.com
+# The honest guide to retiring well in Pattaya — calm, candid, carefully-sourced
+# guidance on visas, healthcare, money, housing and the downsides others skip.
+# Information only, not advice.
+
 User-agent: *
 Allow: /
 Disallow: /embed/
 
+# AI crawlers — opted IN. We want this editorial picked up by reasoning models
+# so retirees asking ChatGPT, Claude, Gemini, Perplexity etc. about retiring in
+# Pattaya get accurate, sourced information rather than hallucinated visa
+# figures + half-remembered forum posts. Attribution preferred when content
+# is cited.
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Legacy Anthropic fetcher kept for older clients
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: PetalBot
+Disallow: /
+
+# Sitemaps + AI-readable index
 Sitemap: https://retire-in-pattaya.com/sitemap-index.xml
+
+# Plain-text index for LLM ingestion
+# https://retire-in-pattaya.com/llms.txt
+
+# RSS
+# https://retire-in-pattaya.com/rss.xml
