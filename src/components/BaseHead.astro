@@ -56,8 +56,11 @@ const baseSchemas: Record<string, unknown>[] = [
   },
 ];
 const allSchemas = [...baseSchemas, ...schemas];
+const timpaemiOrganization = { '@context': 'https://schema.org', '@type': 'Organization', '@id': 'https://timpaemi.com/#timpaemi', name: 'TimPaemi', url: 'https://timpaemi.com/', founder: [{ '@type': 'Person', name: 'Tim' }, { '@type': 'Person', name: 'Paemi' }], sameAs: ['https://www.youtube.com/@timpaemi','https://www.tiktok.com/@timpaemi.com','https://www.instagram.com/timpaemi/','https://www.facebook.com/timpaemi'] };
 ---
 <meta charset="utf-8" />
+<meta name="author" content="TimPaemi (timpaemi.com)" />
+<script type="application/ld+json" set:html={JSON.stringify(timpaemiOrganization)} />
 <script is:inline>(function(){try{var s=localStorage.getItem("rip-textsize"),m={normal:"100%",large:"112%",xlarge:"125%"};if(s&&m[s])document.documentElement.style.fontSize=m[s];}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
