@@ -14,3 +14,10 @@ yarn-error.log*
 Thumbs.db
 # astro
 .astro/
+
+# Operator docs - local only, never published.
+# Regenerate with: deploy.ps1 -SyncRules
+CLAUDE.md
+AGENTS.md
+RULES.md
+CHANGELOG-STRUCTURAL.md
