@@ -11,4 +11,4 @@ One of Pattaya's biggest draws is value: many retirees live comfortably here on 
 
 We break costs into three honest tiers — **lean, comfortable and premium** — and itemise them, including the things newcomers routinely underestimate: health insurance, visa costs, flights home, and a sensible emergency buffer.
 
-Use these as a starting point, then build your own numbers with our budget tools — or cross-check them with the network's independent [Pattaya cost-of-living calculator](https://pattayatools.pages.dev/tools/cost-of-living/). And remember the golden rule of retiring abroad: plan for the life you'll actually want in ten years, not just the holiday version of it.
+Use these as a starting point, then build your own numbers with our [cost-of-living budget builder](/tools/cost-of-living-budget-builder/). And remember the golden rule of retiring abroad: plan for the life you'll actually want in ten years, not just the holiday version of it.
