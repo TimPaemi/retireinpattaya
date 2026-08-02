@@ -17,7 +17,10 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap({
-      filter: (page) => !page.includes('/embed/') && !page.includes('/thank-you/'),
+      filter: (page) =>
+        !page.includes('/embed/')
+        && !page.includes('/search/')
+        && !page.includes('/thank-you/'),
     }),
   ],
   markdown: {
